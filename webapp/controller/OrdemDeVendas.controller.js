@@ -12,6 +12,7 @@
 
 			return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.controller.OrdemDeVendas", {
 
+
 				pegaObs: function (oEvent) {
 					this.getView().getModel().submitChanges({
 						success: function (oSuccess) {
