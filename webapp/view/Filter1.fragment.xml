@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog>
+		<filterItems>
+			<ViewSettingsFilterItem text="Ordem" key="Ordem" items="{path: '/Ordem'}">
+				<items>
+					<ViewSettingsItem key="String___Ordem___{}" text="{}"></ViewSettingsItem>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

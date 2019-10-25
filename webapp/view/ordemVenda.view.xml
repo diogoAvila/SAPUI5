@@ -1,0 +1,132 @@
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table"
+	controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.OrdemDeVendas" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Ordem de Venda" enableScrolling="true">
+		<content>
+			<l:VerticalLayout width="100%" class="gridWrapper">
+				<l:Grid containerQuery="true" vSpacing="2" defaultSpan="L12 M12 S12">
+					<Button text="click" press="_onTableItemPress"/>
+					<smartTable:SmartTable id="smart" entitySet="ZFI_DASHBOARD_OV_APP" tableType="ResponsiveTable" header="Ordens bloqueadas"
+						persistencyKey="SmartTableAnalytical_Explored" useExportToExcel="false" showRowCount="true" enableAutoBinding="true"
+						class="sapUiResponsiveContentPadding">
+						<t:Table cellClick="cellClick">
+							<t:columns>
+								<t:Column autoResizable="true" hAlign="Center" width="100px">
+									<Label text="Aprovação"></Label>
+									<t:template>
+										<Select id="select" width="10rem" selectedKey="{Status_aprov}" change="decisionSelected">
+											<core:Item text="" enabled="true" key=""/>
+											<core:Item text="Aprovado" enabled="true" key="Aprovado"/>
+											<core:Item text="Reprovado" enabled="true" key="Reprovado"/>
+										</Select>
+									</t:template>
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Status_aprov"}'/>
+									</t:customData>
+								</t:Column>
+								<t:Column autoResizable="true" hAlign="Center" width="100px">
+									<Label text="Observação"></Label>
+									<t:template>
+										<Button icon="sap-icon://edit" press="onOpenDialog"/>
+									</t:template>
+									<t:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Observacao","columnIndex":"15"}'/>
+									</t:customData>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</smartTable:SmartTable>
+					<t:Table id="tValorFaturar" width="auto" rows="{path:'/ZFI_DASHBOARD_VALOR_FATURAR'}" selectionMode="None" visibleRowCount="4"
+						ariaLabelledBy="title" class="sapUiResponsiveContentPadding">
+						<t:columns>
+							<t:Column width="15rem">
+								<Label text="Valor a Faturar"/>
+								<t:template>
+									<ObjectIdentifier title="{Valor_Faturar}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Janeiro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v1', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Fevereiro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v2', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Março"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v3', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Abril"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v4', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Maio"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v5', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Junho"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v6', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Julho"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v7', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Agosto"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v8', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Setembro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v9', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Outubro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v10', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Novembro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v11', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Dezembro"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'v12', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="12rem">
+								<Label text="Total"/>
+								<t:template>
+									<ObjectIdentifier title="{path: 'Total', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</l:Grid>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

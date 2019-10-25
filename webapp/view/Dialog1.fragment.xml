@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.Dialog1" xmlns="sap.m">
+    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Selecione o monitor" type="Standard" verticalScrolling="true">
+        <content>
+            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="SpaceAround" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Button text="Limite" type="Accept" iconFirst="true" width="100%" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                    <Button text="Ordem" type="Accept" iconFirst="true" width="100%" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+                </items>
+                <layoutData/>
+            </HBox>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="Cancelar" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress2"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

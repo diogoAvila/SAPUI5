@@ -1,0 +1,23 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.PaginaInicial" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <Page showHeader="true" title="Página Inicial" showFooter="true" showNavButton="false">
+        <content>
+            <layout:Grid defaultIndent="L0 M0 S0" defaultSpan="L3 M6 S12" position="Left" width="auto" containerQuery="false" hSpacing="1" vSpacing="1" visible="true" class="sapUiResponsiveMargin">
+                <layout:content>
+                    <GenericTile header="Dashboard" subheader="" frameType="OneByOne" press="_onGenericTilePress">
+                        <tileContent>
+                            <TileContent footer="" unit="">
+                                <content>
+                                    <NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://drop-down-list"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+                </layout:content>
+            </layout:Grid>
+        </content>
+        <footer/>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

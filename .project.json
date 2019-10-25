@@ -1,0 +1,25 @@
+{
+    "dataBinding": {
+        "/webapp/view/PaginaInicial.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/LimiteDeCredito.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/OrdemDeVendas.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/AnaliseDeDados.view.xml": {
+            "entitySet": "/LimitedeCreditoSet"
+        }, 
+        "/webapp/view/Dialog3.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog2.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog1.view.xml": {
+            "entitySet": ""
+        } 
+    }
+}

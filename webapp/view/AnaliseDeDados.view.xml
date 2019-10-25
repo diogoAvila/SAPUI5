@@ -1,0 +1,2308 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.AnaliseDeDados" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:smartTable="sap.ui.comp.smarttable">
+	<Page showHeader="true" id="analise" title="Detalhes" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<content>
+			<ObjectHeader intro="" title="{Nome}" icon="sap-icon://person-placeholder" number="" numberUnit="" numberState="None" titleActive="false"
+				backgroundDesign="Translucent" condensed="false" visible="true">
+				<attributes/>
+				<statuses/>
+				<markers/>
+			</ObjectHeader>
+			<IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<items>
+					<IconTabFilter icon="sap-icon://multiple-line-chart" iconColor="Positive" text="Geral" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<layout:Grid defaultIndent="L0 M0 S0" defaultSpan="L6 M6 S12" position="Center" width="100%" containerQuery="false" hSpacing="1"
+								vSpacing="1" visible="true">
+								<layout:content>
+									<VBox alignItems="Baseline" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<items>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Cliente" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_cliente'}" showSeparators="All" growing=" true"
+														growingScrollToLoad=" true">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Nome Cliente" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Cidade" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Estado" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Mercado" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Relacionamento" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items >
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{Nome}" titleActive="false" visible="true"/>
+																	<Text text="{Cidade}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{Estado}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{Mercado}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{Relacionamento}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div"
+														visible="true" displayInline="false">
+														<items>
+															<Title text="Limite de Crédito" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+															<Title text="Rating / C" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+														</items>
+														<layoutData/>
+													</HBox>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header/>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header/>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Vigente" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{limite_vigente}" unit="M" emphasized="true" state="Warning"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Para Aprovação" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{limite_aprovacao}" unit="M" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Exigido" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{exigido}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Atingido" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{atingido}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Histórico de Vendas" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Vendas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="2016" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="624 000" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="2017" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="240 000" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="2018" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="712 000" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Budget 2019" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Budget" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Quantidade" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Realizado" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="35" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Pendente" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="25" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Orçado" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="110" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Budget por Cultura" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiTinyMarginTop" items="{path:'/BudgetTABELASet', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Cultura" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Quantidade" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
+																	<Text text="{Quantidade}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectNumber number="{Porcentagem}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Representatividade por Cultura" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiTinyMarginTop" items="{path:'ClienteTabela3', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Cultura" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Hectares" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Custo de produção" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Previsão de receita" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
+																	<Text text="{path: 'Hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectNumber number="{path: 'porcentagem', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false">
+												<items>
+													<Title text="Posição do Cliente" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiSmallMarginTop"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Vencido" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="A Vencer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Total" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectNumber number="3.150.000" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="1.035.000" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="4.185.000" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Integrantes" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiTinyMarginTop" items="{path:'ClienteTabela2', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Integrantes" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Participação" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{integrantes}" text="" titleActive="false" visible="true"/>
+																	<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Fornecedores" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_fornecedores'}" showSeparators="All" growing="true"
+														growingThreshold="20" growingScrollToLoad="true" class="sapUiTinyMarginTop">
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header/>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{path:'fornecedores'}" text="" titleActive="false" visible="true"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Contratos" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiTinyMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Valor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Quantidade" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Abaixo de 60 dias" text="" titleActive="false" visible="true"/>
+																	<ObjectStatus text="150" state="Success" visible="true"/>
+																	<ObjectNumber number="40" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="Acima de 60 dias" text="" titleActive="false" visible="true"/>
+																	<ObjectStatus text="100" state="Error" visible="true"/>
+																	<ObjectNumber number="20" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Faturamento" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="auto" noDataText="No data" items="{path: 'to_faturamento'}" mode="None" showSeparators="All" growing="true"
+														growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Title text="Defensivos" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Title text="Sementes" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Title text="Fertilizantes" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Title text="Grãos" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectNumber number="{defensivos}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{sementes}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{fertilizantes}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{graos}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Parecer" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div"
+														visible="true" displayInline="false">
+														<items>
+															<Link text="Crédito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
+																subtle="false" press="_onLinkPress"/>
+															<Link text="5C'S" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
+																subtle="false" press="_onLinkPress1"/>
+															<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																visible="true" displayInline="false">
+																<items>
+																	<CheckBox text="Aprovado" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																		wrapping="false" useEntireWidth="true"/>
+																	<CheckBox text="Comitê" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit" wrapping="false"
+																		useEntireWidth="true"/>
+																	<CheckBox text="Reprovado" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																		wrapping="false" useEntireWidth="true"/>
+																	<CheckBox text="Superior" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																		wrapping="false" useEntireWidth="true"/>
+																</items>
+																<layoutData/>
+															</VBox>
+														</items>
+														<layoutData/>
+													</HBox>
+												</items>
+												<layoutData/>
+											</VBox>
+										</items>
+										<layoutData/>
+									</VBox>
+									<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<items>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Title text="Propostas de Garantia" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														items="{path:'to_garantia'}">
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Tipo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Valor USD" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Utilizado" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Disponível" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Entregue" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Pendente" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Pendente>60 dias" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{valor}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{utilizado}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{limite_disponivel}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{ entregue}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{pendentes}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{pendentes_60}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+											<Title text="Indicadores Financeiros" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"
+												class="sapUiSmallMarginTop"/>
+											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+												visible="true" displayInline="false" class="sapUiSmallMarginTop">
+												<items>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop" items="{path:'/Indicador1Set', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Tendência" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{Indices}" text="" titleActive="false" visible="true"/>
+																	<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop" items="{path:'/Indicador2Set', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="DRE" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="R$" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{indices}" text="" titleActive="false" visible="true"/>
+																	<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop" items="{path:'/Indicador3Set', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Ativo" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="R$" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{ativo}" text="" titleActive="false" visible="true"/>
+																	<Text text="{doisdesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop" items="{path:'/Indicador4Set', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Passivo" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="R$" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{passivo}" text="" titleActive="false" visible="true"/>
+																	<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+														class="sapUiSmallMarginTop" items="{path:'/Indicador5Set', templateShareable:true}">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{rating}" text="" titleActive="false" visible="true"/>
+																	<Text text="{doisdessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</items>
+												<layoutData/>
+											</VBox>
+										</items>
+										<layoutData/>
+									</VBox>
+								</layout:content>
+							</layout:Grid>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://chart-table-view" iconColor="Neutral" text="Indicadores" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Indicadores Financeiros" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+																<layout:content>
+																	<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																		visible="true" displayInline="false">
+																		<items>
+																			<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																				visible="true" displayInline="false" class="sapUiSmallMarginTop">
+																				<items>
+																					<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																						class="sapUiSmallMarginTop" items="{path:'/Indicador1Set', templateShareable:true}">
+																						<infoToolbar>
+																							<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																								<content>
+																									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</content>
+																							</Toolbar>
+																						</infoToolbar>
+																						<headerToolbar/>
+																						<columns>
+																							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																								<header>
+																									<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="Tendência" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																						</columns>
+																						<items>
+																							<ColumnListItem type="Active">
+																								<cells>
+																									<ObjectIdentifier title="{Indices}" text="" titleActive="false" visible="true"/>
+																									<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<layout:HorizontalLayout>
+																										<layout:content/>
+																									</layout:HorizontalLayout>
+																								</cells>
+																							</ColumnListItem>
+																						</items>
+																					</Table>
+																					<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																						class="sapUiSmallMarginTop" items="{path:'/Indicador2Set', templateShareable:true}">
+																						<infoToolbar>
+																							<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																								<content>
+																									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</content>
+																							</Toolbar>
+																						</infoToolbar>
+																						<headerToolbar/>
+																						<columns>
+																							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																								<header>
+																									<Text text="DRE" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																						</columns>
+																						<items>
+																							<ColumnListItem type="Active">
+																								<cells>
+																									<ObjectIdentifier title="{indices}" text="" titleActive="false" visible="true"/>
+																									<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</cells>
+																							</ColumnListItem>
+																						</items>
+																					</Table>
+																					<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																						class="sapUiSmallMarginTop" items="{path:'/Indicador3Set', templateShareable:true}">
+																						<infoToolbar>
+																							<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																								<content>
+																									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</content>
+																							</Toolbar>
+																						</infoToolbar>
+																						<headerToolbar/>
+																						<columns>
+																							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																								<header>
+																									<Text text="Ativo" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																						</columns>
+																						<items>
+																							<ColumnListItem type="Active">
+																								<cells>
+																									<ObjectIdentifier title="{ativo}" text="" titleActive="false" visible="true"/>
+																									<Text text="{doisdesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</cells>
+																							</ColumnListItem>
+																						</items>
+																					</Table>
+																					<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																						class="sapUiSmallMarginTop" items="{path:'/Indicador4Set', templateShareable:true}">
+																						<infoToolbar>
+																							<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																								<content>
+																									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</content>
+																							</Toolbar>
+																						</infoToolbar>
+																						<headerToolbar/>
+																						<columns>
+																							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																								<header>
+																									<Text text="Passivo" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																						</columns>
+																						<items>
+																							<ColumnListItem type="Active">
+																								<cells>
+																									<ObjectIdentifier title="{passivo}" text="" titleActive="false" visible="true"/>
+																									<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{porcentagem3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</cells>
+																							</ColumnListItem>
+																						</items>
+																					</Table>
+																					<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																						class="sapUiSmallMarginTop" items="{path:'/Indicador5Set', templateShareable:true}">
+																						<infoToolbar>
+																							<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																								<content>
+																									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</content>
+																							</Toolbar>
+																						</infoToolbar>
+																						<headerToolbar/>
+																						<columns>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																								<header>
+																									<Text text="RATING CC" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																							<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																								mergeDuplicates="false">
+																								<header>
+																									<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</header>
+																								<footer/>
+																							</Column>
+																						</columns>
+																						<items>
+																							<ColumnListItem type="Active">
+																								<cells>
+																									<ObjectIdentifier title="{rating}" text="" titleActive="false" visible="true"/>
+																									<Text text="{doisdessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																									<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																								</cells>
+																							</ColumnListItem>
+																						</items>
+																					</Table>
+																				</items>
+																				<layoutData/>
+																			</VBox>
+																		</items>
+																		<layoutData/>
+																	</VBox>
+																</layout:content>
+															</layout:BlockLayoutCell>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://table-chart" iconColor="Neutral" text="Garantia" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Propostas de Garantias" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																items="{path:'to_garantia'}">
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																		<header>
+																			<Text text="Tipo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Valor USD" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Utilizado" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Disponível" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Entregue" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Pendente" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Pendente>60 dias" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="{valor}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{utilizado}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{limite_disponivel}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{entregue}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{pendentes}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{pendentes_60}" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://donut-chart" iconColor="Neutral" text="Budget" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Budget - 2019" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+																visible="true" displayInline="false" class="sapUiSmallMarginTop">
+																<items>
+																	<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																		class="sapUiSmallMarginTop">
+																		<infoToolbar>
+																			<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																				<content>
+																					<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</content>
+																			</Toolbar>
+																		</infoToolbar>
+																		<headerToolbar/>
+																		<columns>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																				<header>
+																					<Text text="Budget" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</header>
+																				<footer/>
+																			</Column>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																				mergeDuplicates="false">
+																				<header>
+																					<Text text="Quantidade" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</header>
+																				<footer/>
+																			</Column>
+																		</columns>
+																		<items>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Realizado" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="35" unit="" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Pendente" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="25" unit="" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Orçado" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="110" unit="" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																		</items>
+																	</Table>
+																</items>
+																<layoutData/>
+															</VBox>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://pie-chart" iconColor="Neutral" text="Budget Cultura" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Budget por Cultura" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																class="sapUiTinyMarginTop" items="{path:'/BudgetTABELASet', templateShareable:true}">
+																<infoToolbar>
+																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																		<content>
+																			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</content>
+																	</Toolbar>
+																</infoToolbar>
+																<headerToolbar/>
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																		<header>
+																			<Text text="Cultura" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Quantidade" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
+																			<Text text="{Quantidade}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																			<ObjectNumber number="{Porcentagem}" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://bbyd-active-sales" iconColor="Neutral" text="Hist. Vendas" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Histórico de Vendas" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																class="sapUiSmallMarginTop">
+																<infoToolbar>
+																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																		<content>
+																			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</content>
+																	</Toolbar>
+																</infoToolbar>
+																<headerToolbar/>
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																		<header>
+																			<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Vendas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="2016" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="624 000" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="2017" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="240 000" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="2018" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="712 000" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://kpi-managing-my-area" iconColor="Neutral" text="Posição" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Posição do Cliente" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																class="sapUiSmallMarginTop" items="{path:'/PosicaoTABELASet', templateShareable:true}">
+																<infoToolbar>
+																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																		<content>
+																			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</content>
+																	</Toolbar>
+																</infoToolbar>
+																<headerToolbar/>
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																		<header>
+																			<Text text="Mês" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer>
+																			<Text text="Total:" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</footer>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Vencido" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer>
+																			<Text text="3.150.000" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</footer>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="A Vencer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer>
+																			<Text text="1.035.000" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</footer>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="{Mes}" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="{AVENCER}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{VENCIDO}" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://personnel-view" iconColor="Neutral" text="Representatividade" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="4" title="" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Title text="Representitividade por Cultura" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+															<HBox alignItems="Center" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="Center" renderType="Div"
+																visible="true" displayInline="false">
+																<items>
+																	<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																		class="sapUiResponsiveMargin" items="{path:'ClienteTabela3', templateShareable:true}">
+																		<infoToolbar>
+																			<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																				<content>
+																					<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</content>
+																			</Toolbar>
+																		</infoToolbar>
+																		<headerToolbar/>
+																		<columns>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																				<header>
+																					<Text text="Cultura" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</header>
+																				<footer/>
+																			</Column>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																				mergeDuplicates="false">
+																				<header>
+																					<Text text="Hectares" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</header>
+																				<footer/>
+																			</Column>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																				mergeDuplicates="false">
+																				<header>
+																					<Text text="%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</header>
+																				<footer/>
+																			</Column>
+																		</columns>
+																		<items>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
+																					<Text text="{path: 'Hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																						wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																					<ObjectNumber number="{path: 'porcentagem', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																		</items>
+																	</Table>
+																</items>
+																<layoutData/>
+															</HBox>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://money-bills" iconColor="Neutral" text="Faturamento" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="1" title="Faturamento" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="auto" noDataText="No data" items="{path: 'to_faturamento'}" mode="None" showSeparators="All" growing="true"
+																growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Title text="Defensivos" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Title text="Sementes" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Title text="Fertilizantes" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Title text="Grãos" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectNumber number="{defensivos}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{sementes}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{fertilizantes}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{graos}" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://employee-approvals" iconColor="Neutral" text="Fornecedores" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="1" title="Fornecedores" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="auto" noDataText="No data" mode="None" items="{path: 'to_fornecedores'}" showSeparators="All" growing="true"
+																growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header/>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="{fornecedores}" text="" titleActive="false" visible="true"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://order-status" iconColor="Neutral" text="Contratos" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="1" title="Contratos" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																class="sapUiResponsiveMargin">
+																<infoToolbar>
+																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																		<content>
+																			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</content>
+																	</Toolbar>
+																</infoToolbar>
+																<headerToolbar/>
+																<columns>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																		<header>
+																			<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Valor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Quantidade" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="Abaixo de 60 dias" text="" titleActive="false" visible="true"/>
+																			<ObjectStatus text="150" state="Success" visible="true"/>
+																			<ObjectNumber number="40" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="Acima de 60 dias" text="" titleActive="false" visible="true"/>
+																			<ObjectStatus text="100" state="Error" visible="true"/>
+																			<ObjectNumber number="20" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://person-placeholder" iconColor="Neutral" text="Cliente" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="1" title="Cliente" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<VBox alignItems="Baseline" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																visible="true" displayInline="false">
+																<items>
+																	<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																		visible="true" displayInline="false" class="sapUiSmallMarginTop">
+																		<items>
+																			<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_cliente'}" showSeparators="All" growing="true" growingThreshold="20"
+																				growingScrollToLoad="true">
+																				<infoToolbar>
+																					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																						<content>
+																							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</content>
+																					</Toolbar>
+																				</infoToolbar>
+																				<headerToolbar/>
+																				<columns>
+																					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Nome Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Cidade" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Mercado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Relacionamento" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																				</columns>
+																				<items>
+																					<ColumnListItem type="Active">
+																						<cells>
+																							<ObjectIdentifier title="{Nome}" text="" titleActive="false" visible="true"/>
+																							<Text text="{Cidade}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																							<Text text="{Estado}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																							<Text text="{Mercado}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																							<Text text="{Relacionamento}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</cells>
+																					</ColumnListItem>
+																				</items>
+																			</Table>
+																		</items>
+																		<layoutData/>
+																	</VBox>
+																	<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+																		visible="true" displayInline="false" class="sapUiSmallMarginTop">
+																		<items>
+																			<Title text="Integrantes" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																			<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																				class="sapUiTinyMarginTop" items="{path:'ClienteTabela2', templateShareable:true}">
+																				<infoToolbar>
+																					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																						<content>
+																							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</content>
+																					</Toolbar>
+																				</infoToolbar>
+																				<headerToolbar/>
+																				<columns>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Integrantes" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																						mergeDuplicates="false">
+																						<header>
+																							<Text text="Participação" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
+																				</columns>
+																				<items>
+																					<ColumnListItem type="Active">
+																						<cells>
+																							<ObjectIdentifier title="{integrantes}" text="" titleActive="false" visible="true"/>
+																							<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																								wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</cells>
+																					</ColumnListItem>
+																				</items>
+																			</Table>
+																		</items>
+																		<layoutData/>
+																	</VBox>
+																</items>
+																<layoutData/>
+															</VBox>
+															<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+																visible="true" displayInline="false" class="sapUiSmallMarginTop">
+																<items>
+																	<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div"
+																		visible="true" displayInline="false">
+																		<items>
+																			<Title text="Limite de Crédito" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																			<Title text="Rating / C" titleStyle="H2" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+																		</items>
+																		<layoutData/>
+																	</HBox>
+																	<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																		class="sapUiSmallMarginTop">
+																		<infoToolbar>
+																			<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																				<content>
+																					<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																				</content>
+																			</Toolbar>
+																		</infoToolbar>
+																		<headerToolbar/>
+																		<columns>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																				<header/>
+																				<footer/>
+																			</Column>
+																			<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																				mergeDuplicates="false">
+																				<header/>
+																				<footer/>
+																			</Column>
+																		</columns>
+																		<items>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Vigente" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="6" unit="M" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Para Aprovação" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="10" unit="M" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Exigido" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="6.5" unit="" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="Atingido" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="7.5" unit="" emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
+																		</items>
+																	</Table>
+																</items>
+																<layoutData/>
+															</VBox>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://employee-lookup" iconColor="Neutral" text="Parecer" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
+								<content>
+									<layout:BlockLayout background="Default" visible="true">
+										<layout:content>
+											<layout:BlockLayoutRow scrollable="false">
+												<layout:content>
+													<layout:BlockLayoutCell width="2" title="Parecer" titleAlignment="Begin" titleLevel="Auto">
+														<layout:content>
+															<HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div"
+																visible="true" displayInline="false">
+																<items>
+																	<Link text="Crédito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="true"
+																		subtle="false" press="_onLinkPress2"/>
+																	<Link text="5C'S" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="true"
+																		subtle="false" press="_onLinkPress3"/>
+																	<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+																		visible="true" displayInline="false">
+																		<items>
+																			<CheckBox text="Aprovado" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																				wrapping="false" useEntireWidth="true"/>
+																			<CheckBox text="Comitê" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit" wrapping="false"
+																				useEntireWidth="true"/>
+																			<CheckBox text="Reprovado" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																				wrapping="false" useEntireWidth="true"/>
+																			<CheckBox text="Superior" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
+																				wrapping="false" useEntireWidth="true"/>
+																		</items>
+																		<layoutData/>
+																	</VBox>
+																</items>
+																<layoutData/>
+															</HBox>
+														</layout:content>
+													</layout:BlockLayoutCell>
+												</layout:content>
+											</layout:BlockLayoutRow>
+										</layout:content>
+									</layout:BlockLayout>
+								</content>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+				</items>
+				<content/>
+			</IconTabBar>
+		</content>
+		<footer/>
+		<!--<headerContent>-->
+		<!--<Link text="Balanço" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"-->
+		<!--subtle="false"/>-->
+		<!--</headerContent>-->
+		<!--<subHeader/>-->
+		<!--<customHeader/>-->
+	</Page>
+</mvc:View>

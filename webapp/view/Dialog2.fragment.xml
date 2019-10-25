@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.Dialog2" xmlns="sap.m">
+    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Mensagem" type="Standard" verticalScrolling="true">
+        <content>
+            <Input value="Mensagem de obsevação" placeholder="" type="Text" showValueHelp="false" enabled="false" visible="true" width="100%" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="OK" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>
