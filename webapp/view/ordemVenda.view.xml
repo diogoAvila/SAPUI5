@@ -5,11 +5,10 @@
 		<content>
 			<l:VerticalLayout width="100%" class="gridWrapper">
 				<l:Grid containerQuery="true" vSpacing="2" defaultSpan="L12 M12 S12">
-					<Button text="click" press="_onTableItemPress"/>
 					<smartTable:SmartTable id="smart" entitySet="ZFI_DASHBOARD_OV_APP" tableType="ResponsiveTable" header="Ordens bloqueadas"
 						persistencyKey="SmartTableAnalytical_Explored" useExportToExcel="false" showRowCount="true" enableAutoBinding="true"
-						class="sapUiResponsiveContentPadding">
-						<t:Table cellClick="cellClick">
+						class="sapUiResponsiveContentPadding" beforeRebindTable="beforeRebindTable">
+						<t:Table cellClick="onCellClick">
 							<t:columns>
 								<t:Column autoResizable="true" hAlign="Center" width="100px">
 									<Label text="Aprovação"></Label>

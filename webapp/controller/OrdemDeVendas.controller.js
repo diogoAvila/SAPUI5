@@ -21,7 +21,6 @@
 								var error = oSuccess.__batchResponses[i].response;
 
 								if (error.statusText == "Bad Request") {
-									debugger;
 									var jsonError = JSON.parse(error.body);
 									var message = jsonError.error.message.value;
 									MessageBox.error(
@@ -32,6 +31,7 @@
 									);
 								}
 							}
+							this.getView().getModel().resetChanges();
 						},
 						error: function (oErr) {
 							debugger;
@@ -69,6 +69,7 @@
 						// if (this.getView().getModel().hasPendingChanges()) {
 						// 	// this.getView().getModel().resetChanges();
 						// }
+						this.getView().getModel().resetChanges();
 						sap.m.MessageBox.error("Não é possível liberar ordem com bloqueio de remessa");
 					}
 				},
@@ -131,7 +132,7 @@
 
 				},
 
-				cellClick: function (oEvt) {
+				onCellClick: function (oEvt) {
 					var oBindingContext = oEvt.getParameter("rowBindingContext").getObject();
 					var cliente = oBindingContext.Cliente;
 					var item = oBindingContext.Item;
@@ -143,45 +144,6 @@
 						ordem: ordem,
 						item: item
 					});
-
-				},
-
-				_onTableItemPress: function (oEvent) {
-					var oTable = this.getView().byId('smart').getTable();
-					var nIndex = oTable.getSelectedIndex();
-					var oBindingContext = oTable.getContextByIndex(nIndex);
-					var cliente = oBindingContext.getObject().Cliente;
-					var item = oBindingContext.getObject().Item;
-					var ordem = oBindingContext.getObject().Ordem;
-
-					// if (cliente != null) {
-					// 	var filter = [];
-					// 	filter.push(new sap.ui.model.Filter({
-					// 		path: "partner",
-					// 		operator: sap.ui.model.FilterOperator.EQ,
-					// 		value1: cliente
-					// 	}));
-
-					// 	debugger;
-					// 	this.getOwnerComponent().getModel().read(
-					// 		"/ZFI_DASHBOARD_CLIENTE", {
-					// 			filters: filter,
-					// 			success: function (oData, response) {
-					// 				var json = new sap.ui.model.json.JSONModel();
-					// 				json.setData(oData.results);
-					// 				this.getView().setModel(json, "Cliente");
-					// 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-					// 				oRouter.navTo("AnaliseDeDados", true);
-					// 			}.bind(this),
-					// 			error: function (error) {
-					// 				sap.m.MessageToast.show("Erro ao buscar dados do gráfico 3");
-					// 			}
-					// 		}
-					// 	);
-					// } else {
-					// 	var json = new sap.ui.model.json.JSONModel();
-					// 	this.getView().setModel(json, "Cliente");
-					// }
 
 				},
 
@@ -252,6 +214,26 @@
 						}
 					}
 				},
+				beforeRebindTable: function(oEvt){
+					debugger;
+					this.getOwnerComponent().getModel().read(
+				"/APLICACOES_001", {
+					filters: filter,
+					success: function(oData, response) {
+						var json = new sap.ui.model.json.JSONModel();
+						// for (var i = 0; i < oData.results.length; i++) {
+						// 	oData.results[i].DESCRICAO = oData.results[i].DESC_CARTEIRA + " - " + oData.results[i].DESC_APLICACAO;
+						// }
+						json.setData(oData.results);
+						this.getView().setModel(json, "grafico1");
+					}.bind(this),
+					error: function(error) {
+						sap.m.MessageToast.show("Erro ao buscar dados do gráfico 1");
+					}
+				}
+			);
+				},
+				
 
 				onInit: function () {
 
