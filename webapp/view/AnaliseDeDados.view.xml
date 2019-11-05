@@ -146,6 +146,41 @@
 											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
+													<Title text="Grupo Financeiro" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_grupo_finan'}" showSeparators="All" growing="true"
+														growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMarginTop">
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
+														<columns>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
+																<header>
+																	<Text text="Nome do Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
+														</columns>
+														<items>
+															<ColumnListItem type="Active">
+																<cells>
+																	<ObjectIdentifier title="{codigo}" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{nome}" unit="" emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
 													<Title text="Histórico de Vendas" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
 														class="sapUiSmallMarginTop">
@@ -175,20 +210,26 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="2016" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="624 000" unit="" emphasized="true" state="None"/>
+																	<ObjectIdentifier title="{= ${to_hist_vendas/ano1} === '0000' ? ' ' : ${to_hist_vendas/ano1}} " text="" titleActive="false" visible="true"/>
+																	<ObjectNumber
+																		number="{= ${to_hist_vendas/vendas1} === '0.000' ? ' ' : ${path: 'to_hist_vendas/vendas1', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}}"
+																		unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="2017" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="240 000" unit="" emphasized="true" state="None"/>
+																	<ObjectIdentifier title="{= ${to_hist_vendas/ano2} === '0000' ? ' ' : ${to_hist_vendas/ano2}}" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber
+																		number="{= ${to_hist_vendas/vendas2} === '0.000' ? ' ' : ${path: 'to_hist_vendas/vendas2', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}}"
+																		unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="2018" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="712 000" unit="" emphasized="true" state="None"/>
+																	<ObjectIdentifier title="{= ${to_hist_vendas/ano3} === '0000' ? ' ' : ${to_hist_vendas/ano3}}" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber
+																		number="{= ${to_hist_vendas/vendas3} === '0.000' ? ' ' : ${path: 'to_hist_vendas/vendas3', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}}"
+																		unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -254,7 +295,7 @@
 												<items>
 													<Title text="Budget por Cultura" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														class="sapUiTinyMarginTop" items="{path:'/BudgetTABELASet', templateShareable:true}">
+														class="sapUiTinyMarginTop" items="{path:'to_culturas'}">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																<content>
@@ -288,8 +329,8 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
-																	<Text text="{Quantidade}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectIdentifier title="{desc_cultura}" text="" titleActive="false" visible="true"/>
+																	<Text text="{area_hectares}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																	<ObjectNumber number="{Porcentagem}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
@@ -303,7 +344,7 @@
 												<items>
 													<Title text="Representatividade por Cultura" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														class="sapUiTinyMarginTop" items="{path:'ClienteTabela3', templateShareable:true}">
+														class="sapUiTinyMarginTop" items="{path:'to_culturas'}">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																<content>
@@ -351,11 +392,10 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{Cultura}" text="" titleActive="false" visible="true"/>
-																	<Text text="{path: 'Hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																	<ObjectIdentifier title="{desc_cultura}" text="" titleActive="false" visible="true"/>
+																	<Text text="{path: 'area_hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																	<ObjectNumber number="{path: 'porcentagem', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
-																		emphasized="true" state="None"/>
+																	<ObjectNumber number="{path: 'percent'}" unit="" emphasized="true" state="None"/>
 																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
 																	<ObjectNumber number="0" unit="" emphasized="true" state="None"/>
 																</cells>
@@ -369,8 +409,8 @@
 												visible="true" displayInline="false">
 												<items>
 													<Title text="Posição do Cliente" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false" class="sapUiSmallMarginTop"/>
-													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														class="sapUiSmallMarginTop">
+													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_pos_cliente'}" showSeparators="All" growing="true"
+														growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMarginTop">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																<content>
@@ -405,9 +445,9 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectNumber number="3.150.000" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="1.035.000" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="4.185.000" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{vencido}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{avencer}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{total}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -420,7 +460,7 @@
 												<items>
 													<Title text="Integrantes" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														class="sapUiTinyMarginTop" items="{path:'ClienteTabela2', templateShareable:true}">
+														class="sapUiTinyMarginTop" items="{path:'to_integrantes'}">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																<content>
@@ -436,6 +476,12 @@
 																</header>
 																<footer/>
 															</Column>
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Tipo" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
 															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 																mergeDuplicates="false">
 																<header>
@@ -447,7 +493,8 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{integrantes}" text="" titleActive="false" visible="true"/>
+																	<ObjectIdentifier title="{integrante}" text="" titleActive="false" visible="true"/>
+																	<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
 																	<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</cells>
@@ -521,15 +568,15 @@
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="Abaixo de 60 dias" text="" titleActive="false" visible="true"/>
-																	<ObjectStatus text="150" state="Success" visible="true"/>
-																	<ObjectNumber number="40" unit="" emphasized="true" state="None"/>
+																	<ObjectStatus text="{to_contratos/Valor_abaixo}" state="Success" visible="true"/>
+																	<ObjectNumber number="{to_contratos/Qtde_abaixo}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="Acima de 60 dias" text="" titleActive="false" visible="true"/>
-																	<ObjectStatus text="100" state="Error" visible="true"/>
-																	<ObjectNumber number="20" unit="" emphasized="true" state="None"/>
+																	<ObjectStatus text="{to_contratos/Valor_acima}" state="Error" visible="true"/>
+																	<ObjectNumber number="{to_contratos/Qtde_acima}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -595,23 +642,9 @@
 														visible="true" displayInline="false">
 														<items>
 															<Link text="Crédito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
-																subtle="false" press="_onLinkPress"/>
+																subtle="false" press="onGetParecer"/>
 															<Link text="5C'S" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
-																subtle="false" press="_onLinkPress1"/>
-															<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
-																visible="true" displayInline="false">
-																<items>
-																	<CheckBox text="Aprovado" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																		wrapping="false" useEntireWidth="true"/>
-																	<CheckBox text="Comitê" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit" wrapping="false"
-																		useEntireWidth="true"/>
-																	<CheckBox text="Reprovado" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																		wrapping="false" useEntireWidth="true"/>
-																	<CheckBox text="Superior" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																		wrapping="false" useEntireWidth="true"/>
-																</items>
-																<layoutData/>
-															</VBox>
+																subtle="false" press="onGet5c"/>
 														</items>
 														<layoutData/>
 													</HBox>
@@ -702,41 +735,41 @@
 											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
-													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														class="sapUiSmallMarginTop" items="{path:'/Indicador1Set', templateShareable:true}">
-														<infoToolbar>
-															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
-																<content>
-																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</content>
-															</Toolbar>
-														</infoToolbar>
-														<headerToolbar/>
+													<Table id='tab_indicadores' width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20"
+														growingScrollToLoad="true" class="sapUiSmallMarginTop" items="{path:'/ZFI_DASHBOARD_BALANCO_CAMPOSSet'}">
+														<!--<infoToolbar>-->
+														<!--	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">-->
+														<!--		<content>-->
+														<!--			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+														<!--		</content>-->
+														<!--	</Toolbar>-->
+														<!--</infoToolbar>-->
+														<!--<headerToolbar/>-->
 														<columns>
-															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+															<!--<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
+															<!--	<header>-->
+															<!--		<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+															<!--	</header>-->
+															<!--	<footer/>-->
+															<!--</Column>-->
+															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																mergeDuplicates="false">
 																<header>
-																	<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{to_balanco_campos/ano1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</header>
 																<footer/>
 															</Column>
 															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 																mergeDuplicates="false">
 																<header>
-																	<Text text="2016" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{to_balanco_campos/ano2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</header>
 																<footer/>
 															</Column>
 															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 																mergeDuplicates="false">
 																<header>
-																	<Text text="2017" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{to_balanco_campos/ano3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</header>
 																<footer/>
 															</Column>
@@ -751,10 +784,10 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{Indices}" text="" titleActive="false" visible="true"/>
-																	<Text text="{doisdezesseis}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																	<Text text="{doisdezessete}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																	<Text text="{doisdezoito}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<ObjectIdentifier title="{descr_campo}" text="" titleActive="false" visible="true"/>
+																	<Text text="{valor_ano1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{valor_ano2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{valor_ano3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -1675,64 +1708,88 @@
 						<content>
 							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
 								<content>
-									<layout:BlockLayout background="Default" visible="true">
-										<layout:content>
-											<layout:BlockLayoutRow scrollable="false">
-												<layout:content>
-													<layout:BlockLayoutCell width="2" title="Histórico de Vendas" titleAlignment="Begin" titleLevel="Auto">
-														<layout:content>
-															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-																class="sapUiSmallMarginTop">
-																<infoToolbar>
-																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
-																		<content>
-																			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																		</content>
-																	</Toolbar>
-																</infoToolbar>
-																<headerToolbar/>
-																<columns>
-																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-																		<header>
-																			<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																		</header>
-																		<footer/>
-																	</Column>
-																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																		mergeDuplicates="false">
-																		<header>
-																			<Text text="Vendas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																		</header>
-																		<footer/>
-																	</Column>
-																</columns>
-																<items>
-																	<ColumnListItem type="Active">
-																		<cells>
-																			<ObjectIdentifier title="2016" text="" titleActive="false" visible="true"/>
-																			<ObjectNumber number="624 000" unit="" emphasized="true" state="None"/>
-																		</cells>
-																	</ColumnListItem>
-																	<ColumnListItem type="Active">
-																		<cells>
-																			<ObjectIdentifier title="2017" text="" titleActive="false" visible="true"/>
-																			<ObjectNumber number="240 000" unit="" emphasized="true" state="None"/>
-																		</cells>
-																	</ColumnListItem>
-																	<ColumnListItem type="Active">
-																		<cells>
-																			<ObjectIdentifier title="2018" text="" titleActive="false" visible="true"/>
-																			<ObjectNumber number="712 000" unit="" emphasized="true" state="None"/>
-																		</cells>
-																	</ColumnListItem>
-																</items>
-															</Table>
-														</layout:content>
-													</layout:BlockLayoutCell>
-												</layout:content>
-											</layout:BlockLayoutRow>
-										</layout:content>
-									</layout:BlockLayout>
+									<Title text="Grupo Financeiro" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+									<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_grupo_finan'}" showSeparators="All" growing="true"
+										growingThreshold="20" growingScrollToLoad="true" class="sapUiSmallMarginTop">
+										<infoToolbar>
+											<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<content>
+													<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</content>
+											</Toolbar>
+										</infoToolbar>
+										<headerToolbar/>
+										<columns>
+											<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+												mergeDuplicates="false">
+												<header>
+													<Text text="Nome do Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<cells>
+													<ObjectIdentifier title="{codigo}" text="" titleActive="false" visible="true"/>
+													<ObjectNumber number="{nome}" unit="" emphasized="true" state="None"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+									<Title text="Histórico de Vendas" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+									<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+										class="sapUiSmallMarginTop">
+										<infoToolbar>
+											<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<content>
+													<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</content>
+											</Toolbar>
+										</infoToolbar>
+										<headerToolbar/>
+										<columns>
+											<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="Ano" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+												mergeDuplicates="false">
+												<header>
+													<Text text="Vendas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<cells>
+													<ObjectIdentifier title="{to_hist_vendas/ano1}" text="" titleActive="false" visible="true"/>
+													<ObjectNumber number="{to_hist_vendas/vendas1}" unit="" emphasized="true" state="None"/>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem type="Active">
+												<cells>
+													<ObjectIdentifier title="{to_hist_vendas/ano2}" text="" titleActive="false" visible="true"/>
+													<ObjectNumber number="{to_hist_vendas/vendas2}" unit="" emphasized="true" state="None"/>
+												</cells>
+											</ColumnListItem>
+											<ColumnListItem type="Active">
+												<cells>
+													<ObjectIdentifier title="{to_hist_vendas/ano3}" text="" titleActive="false" visible="true"/>
+													<ObjectNumber number="{to_hist_vendas/vendas3}" unit="" emphasized="true" state="None"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
 								</content>
 							</ScrollContainer>
 						</content>
@@ -1750,7 +1807,7 @@
 													<layout:BlockLayoutCell width="2" title="Posição do Cliente" titleAlignment="Begin" titleLevel="Auto">
 														<layout:content>
 															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-																class="sapUiSmallMarginTop" items="{path:'/PosicaoTABELASet', templateShareable:true}">
+																class="sapUiSmallMarginTop" items="{path:'to_pos_cliente'}">
 																<infoToolbar>
 																	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																		<content>
@@ -1790,9 +1847,9 @@
 																<items>
 																	<ColumnListItem type="Active">
 																		<cells>
-																			<ObjectIdentifier title="{Mes}" text="" titleActive="false" visible="true"/>
-																			<ObjectNumber number="{AVENCER}" unit="" emphasized="true" state="None"/>
-																			<ObjectNumber number="{VENCIDO}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{vencido}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{avencer}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{total}" unit="" emphasized="true" state="None"/>
 																		</cells>
 																	</ColumnListItem>
 																</items>
@@ -2135,7 +2192,7 @@
 																		<items>
 																			<Title text="Integrantes" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 																			<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-																				class="sapUiTinyMarginTop" items="{path:'ClienteTabela2', templateShareable:true}">
+																				class="sapUiTinyMarginTop" items="{path:'to_socio_integrante'}">
 																				<infoToolbar>
 																					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 																						<content>
@@ -2151,6 +2208,12 @@
 																						</header>
 																						<footer/>
 																					</Column>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<header>
+																							<Text text="Tipo" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</header>
+																						<footer/>
+																					</Column>
 																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 																						mergeDuplicates="false">
 																						<header>
@@ -2162,7 +2225,50 @@
 																				<items>
 																					<ColumnListItem type="Active">
 																						<cells>
-																							<ObjectIdentifier title="{integrantes}" text="" titleActive="false" visible="true"/>
+																							<ObjectIdentifier title="{integrante}" text="" titleActive="false" visible="true"/>
+																							<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																							<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
+																								wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</cells>
+																					</ColumnListItem>
+																				</items>
+																			</Table>
+																			<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																				class="sapUiTinyMarginTop" items="{path:'to_integrantes'}">
+																				<infoToolbar>
+																					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																						<content>
+																							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																						</content>
+																					</Toolbar>
+																				</infoToolbar>
+																				<headerToolbar/>
+																				<columns>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<!--<header>-->
+																						<!--	<Text text="Integrantes" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+																						<!--</header>-->
+																						<!--<footer/>-->
+																					</Column>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																						<!--<header>-->
+																						<!--	<Text text="Tipo" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+																						<!--</header>-->
+																						<!--<footer/>-->
+																					</Column>
+																					<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																						mergeDuplicates="false">
+																						<!--<header>-->
+																						<!--	<Text text="Participação" width="auto" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+																						<!--</header>-->
+																						<!--<footer/>-->
+																					</Column>
+																				</columns>
+																				<items>
+																					<ColumnListItem type="Active">
+																						<cells>
+																							<ObjectIdentifier title="{integrante}" text="" titleActive="false" visible="true"/>
+																							<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
 																							<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																								wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																						</cells>
@@ -2263,23 +2369,9 @@
 																visible="true" displayInline="false">
 																<items>
 																	<Link text="Crédito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="true"
-																		subtle="false" press="_onLinkPress2"/>
+																		subtle="false" press="onGetParecer"/>
 																	<Link text="5C'S" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="true"
-																		subtle="false" press="_onLinkPress3"/>
-																	<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
-																		visible="true" displayInline="false">
-																		<items>
-																			<CheckBox text="Aprovado" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																				wrapping="false" useEntireWidth="true"/>
-																			<CheckBox text="Comitê" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit" wrapping="false"
-																				useEntireWidth="true"/>
-																			<CheckBox text="Reprovado" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																				wrapping="false" useEntireWidth="true"/>
-																			<CheckBox text="Superior" selected="false" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"
-																				wrapping="false" useEntireWidth="true"/>
-																		</items>
-																		<layoutData/>
-																	</VBox>
+																		subtle="false" press="onGet5c"/>
 																</items>
 																<layoutData/>
 															</HBox>

@@ -94,6 +94,17 @@
 				},
 				"dataSource": "ZFI_GW_DASH_OV_SRV",
 				"preload": true
+			},
+			"parecer": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "ZFI_GW_DASH_OV_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
@@ -147,6 +158,10 @@
 				"Filter1": {
 					"viewType": "XML",
 					"viewName": "Filter1"
+				},
+				"parecerCredito": {
+					"viewType": "XML",
+					"viewName": "parecerCredito"
 				}
 			},
 			"routes": [{

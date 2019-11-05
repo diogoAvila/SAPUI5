@@ -9,41 +9,39 @@
 			"sap/ui/model/Filter"
 		], function (BaseController, MessageBox, JSONModel, Dialog3, Dialog, Utilities, History, Device, Filter) {
 			"use strict";
+			var hasError = "";
 
 			return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.controller.OrdemDeVendas", {
+				getObs: function (oEvt) {
+					var oModel = this.getView().getModel();
+					var path = oEvt.getSource().getBindingContext().getPath();
+					var key = path.substr(1);
+					var values = oModel.oData[key];
+					var changes = oEvt.getSource().getModel().getPendingChanges()[key];
+					values.Status_aprov = changes.Status_aprov;
+					values.Observacao = changes.Observacao;
 
+					oModel.update(path, values, {
+						method: "PUT",
+						success: function (data) {},
+						error: function (e) {
+							var error = e.responseText;
 
-				pegaObs: function (oEvent) {
-					this.getView().getModel().submitChanges({
-						success: function (oSuccess) {
-
-							for (var i = 0; i < oSuccess.__batchResponses.length; i++) {
-
-								var error = oSuccess.__batchResponses[i].response;
-
-								if (error.statusText == "Bad Request") {
-									var jsonError = JSON.parse(error.body);
-									var message = jsonError.error.message.value;
-									MessageBox.error(
-										message, {
-											actions: [sap.m.MessageBox.Action.OK],
-											styleClass: "sapUiSizeCompact"
-										}
-									);
+							var jsonError = JSON.parse(error);
+							var message = jsonError.error.message.value;
+							MessageBox.error(
+								message, {
+									actions: [sap.m.MessageBox.Action.OK],
+									styleClass: "sapUiSizeCompact"
 								}
-							}
-							this.getView().getModel().resetChanges();
-						},
-						error: function (oErr) {
-							debugger;
-							this.getView().getModel().resetChanges();
+							);
 						}
 					});
+					this.oDialogObs.close();
 				},
 
 				saveObservation: function () {
-					this.pegaObs();
-					this.oDialogObs.close();
+					this.getObs();
 				},
 
 				getDialog: function (id) {
@@ -67,10 +65,9 @@
 						}
 						this.oDialogObs.bindObject(path).open();
 					} else {
-						// if (this.getView().getModel().hasPendingChanges()) {
-						// 	// this.getView().getModel().resetChanges();
-						// }
-						this.getView().getModel().resetChanges();
+						if (this.getView().getModel().hasPendingChanges()) {
+							this.getView().getModel().resetChanges();
+						}
 						sap.m.MessageBox.error("Não é possível liberar ordem com bloqueio de remessa");
 					}
 				},
@@ -215,26 +212,25 @@
 						}
 					}
 				},
-				beforeRebindTable: function(oEvt){
+				beforeRebindTable: function (oEvt) {
 					debugger;
+
+					var filters = [];
+
+					filters = oEvt.getParameter("bindingParams").filters;
+
 					this.getOwnerComponent().getModel().read(
-				"/APLICACOES_001", {
-					filters: filter,
-					success: function(oData, response) {
-						var json = new sap.ui.model.json.JSONModel();
-						// for (var i = 0; i < oData.results.length; i++) {
-						// 	oData.results[i].DESCRICAO = oData.results[i].DESC_CARTEIRA + " - " + oData.results[i].DESC_APLICACAO;
-						// }
-						json.setData(oData.results);
-						this.getView().setModel(json, "grafico1");
-					}.bind(this),
-					error: function(error) {
-						sap.m.MessageToast.show("Erro ao buscar dados do gráfico 1");
-					}
-				}
-			);
+						"/ZFI_DASHBOARD_VALOR_FATURAR", {
+							filters: filters,
+							success: function (oData, response) {
+								var json = new sap.ui.model.json.JSONModel();
+								json.setData(oData.results);
+								this.getView().setModel(json, "ValorFaturar");
+							}.bind(this)
+						}
+					);
+
 				},
-				
 
 				onInit: function () {
 
@@ -272,20 +268,7 @@
 					debugger;
 				},
 
-				// decisionSelected: function (oEvent) {
-				// 	debugger;
-				// 	var decision = oEvent.getParameter('selectedItem').getText();
-				// 	var key = oEvent.getSource().getBindingContext().getPath().substr(1);
-				// 	var values = this.getView().getModel().oData[key];
-				// 	var bloqueio = values.Bloqueio;
-				// 	if (decision == 'Aprovado') {
-				// 		if (bloqueio == 'R') {
-				// 			oEvent.getSource().setSelectedKey('');
-				// 			sap.m.MessageBox.error("Não é possível liberar ordem com bloqueio de remessa");
-				// 		}
-				// 	}
-
-				// },
+		
 				_onOverflowToolbarButtonPress: function (oEvent) {
 					debugger;
 					this.mSettingsDialogs = this.mSettingsDialogs || {};
