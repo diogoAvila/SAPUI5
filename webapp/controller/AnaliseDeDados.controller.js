@@ -15,7 +15,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject({
 					path: "/ZFI_DASHBOARD_DETALHES('" + oEvent.getParameter("data").cliente + "')",
 					parameters: {
-						expand: "to_cliente,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_grupo_finan,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos,to_balanco_variacao,to_parecer"
+						expand: "to_cliente,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_grupo_finan,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos"
 					}
 				});
 			} else {
@@ -88,6 +88,49 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 			if (!this.oDialogParecer) {
 				this.oDialogParecer = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.parecerCredito");
+				this.getView().addDependent(this.oDialogParecer);
+			}
+			this.oDialogParecer.bindObject(path).open();
+		},
+		
+			onGet5c: function (oEvent) {
+			debugger;
+
+			var filters = [];
+
+			var path = this.getView().getObjectBinding().getPath();
+			var cliente = path.substr(25, 7);
+
+			filters.push(new sap.ui.model.Filter({
+				path: "partner",
+				operator: sap.ui.model.FilterOperator.EQ,
+				value1: cliente
+			}));
+
+			this.getOwnerComponent().getModel().read(
+				"/ZFI_DASHBOARD_DETALHES", {
+					filters: filters,
+					urlParameters: {
+						"$expand": "to_cinco_c"
+					},
+					success: function (oData, response) {
+						var json = new sap.ui.model.json.JSONModel();
+						var sTexto = "";
+						var oDados = oData.results;
+
+						for (var i = 0; i < oDados[0].to_cinco_c.results.length; i++) {
+							sTexto = sTexto + oDados[0].to_cinco_c.results[i].cinco_c;
+						}
+						oData.results[0].to_cinco_c.results[0].cinco_c = sTexto;
+
+						json.setData(oData.results[0].to_cinco_c.results[0]);
+						this.getView().setModel(json, "5C");
+					}.bind(this)
+				}
+			);
+
+			if (!this.oDialogParecer) {
+				this.oDialogParecer = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.texto5C");
 				this.getView().addDependent(this.oDialogParecer);
 			}
 			this.oDialogParecer.bindObject(path).open();

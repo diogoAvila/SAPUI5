@@ -1,5 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.AnaliseDeDados" xmlns="sap.m"
-	xmlns:layout="sap.ui.layout" xmlns:smartTable="sap.ui.comp.smarttable">
+	xmlns:layout="sap.ui.layout" xmlns:smartMicro="sap.ui.comp.smartmicrochart" xmlns:micro="sap.suite.ui.microchart"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:smartTable="sap.ui.comp.smarttable">
 	<Page showHeader="true" id="analise" title="Detalhes" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
 		<content>
 			<ObjectHeader intro="" title="{Nome}" icon="sap-icon://person-placeholder" number="" numberUnit="" numberState="None" titleActive="false"
@@ -24,7 +25,7 @@
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
 													<Title text="Cliente" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
-													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_cliente'}" showSeparators="All" growing=" true"
+													<Table width="100%" id="tab_teste" noDataText="No data" mode="None" items="{path: 'to_cliente'}" showSeparators="All" growing=" true"
 														growingScrollToLoad=" true">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
@@ -661,72 +662,77 @@
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
 													<Title text="Propostas de Garantia" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
-													<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-														items="{path:'to_garantia'}">
-														<columns>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-																<header>
-																	<Text text="Tipo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Valor USD" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Utilizado" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Disponível" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Entregue" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Pendente" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
-																<header>
-																	<Text text="Pendente>60 dias" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																</header>
-																<footer/>
-															</Column>
-														</columns>
-														<items>
-															<ColumnListItem type="Active">
-																<cells>
-																	<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{valor}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{utilizado}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{limite_disponivel}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{ entregue}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{pendentes}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{pendentes_60}" unit="" emphasized="true" state="None"/>
-																</cells>
-															</ColumnListItem>
-														</items>
-													</Table>
+													<ScrollContainer>
+														<content>
+															<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+																items="{path:'to_garantia'}">
+																<columns>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Tipo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Valor USD" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Utilizado" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Disponível" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Entregue" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Pendente" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																	<Column width="12rem" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+																		mergeDuplicates="false">
+																		<header>
+																			<Text text="Pendente>60 dias" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																		</header>
+																		<footer/>
+																	</Column>
+																</columns>
+																<items>
+																	<ColumnListItem type="Active">
+																		<cells>
+																			<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																			<ObjectNumber number="{valor}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{utilizado}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{limite_disponivel}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{ entregue}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{pendentes}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{pendentes_60}" unit="" emphasized="true" state="None"/>
+																		</cells>
+																	</ColumnListItem>
+																</items>
+															</Table>
+														</content>
+													</ScrollContainer>
 												</items>
 												<layoutData/>
 											</VBox>
@@ -735,23 +741,23 @@
 											<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
-													<Table id='tab_indicadores' width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20"
+													<Table id='tab_indicadores' width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20"
 														growingScrollToLoad="true" class="sapUiSmallMarginTop" items="{path:'/ZFI_DASHBOARD_BALANCO_CAMPOSSet'}">
-														<!--<infoToolbar>-->
-														<!--	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">-->
-														<!--		<content>-->
-														<!--			<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
-														<!--		</content>-->
-														<!--	</Toolbar>-->
-														<!--</infoToolbar>-->
-														<!--<headerToolbar/>-->
+														<infoToolbar>
+															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+																<content>
+																	<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</content>
+															</Toolbar>
+														</infoToolbar>
+														<headerToolbar/>
 														<columns>
-															<!--<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
-															<!--	<header>-->
-															<!--		<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
-															<!--	</header>-->
-															<!--	<footer/>-->
-															<!--</Column>-->
+															<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																<header>
+																	<Text text="Índices" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																</header>
+																<footer/>
+															</Column>
 															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 																mergeDuplicates="false">
 																<header>
@@ -773,8 +779,7 @@
 																</header>
 																<footer/>
 															</Column>
-															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
-																mergeDuplicates="false">
+															<Column width="auto" hAlign="Begin" vAlign="Middle" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 																<header>
 																	<Text text="Tendência" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</header>
@@ -788,6 +793,19 @@
 																	<Text text="{valor_ano1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																	<Text text="{valor_ano2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																	<Text text="{valor_ano3}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<FlexBox height="50px" width="100px" renderType="Bare">
+																		<micro:LineMicroChart threshold="40" size="Responsive">
+																			<micro:lines>
+																				<micro:LineMicroChartLine>
+																					<micro:points>
+																						<micro:LineMicroChartPoint x="0" y="{= parseInt(${valor_ano1})}"/>
+																						<micro:LineMicroChartEmphasizedPoint x="5" y="{= parseInt(${valor_ano2})}"/>
+																						<micro:LineMicroChartEmphasizedPoint x="10" y="{= parseInt(${valor_ano3})}"/>
+																					</micro:points>
+																				</micro:LineMicroChartLine>
+																			</micro:lines>
+																		</micro:LineMicroChart>
+																	</FlexBox>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -1488,10 +1506,10 @@
 												<layout:content>
 													<layout:BlockLayoutCell width="2" title="Propostas de Garantias" titleAlignment="Begin" titleLevel="Auto">
 														<layout:content>
-															<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-																items="{path:'to_garantia'}">
+															<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingScrollToLoad="true"
+																items="{path:'to_garantia'}" class="sapUiResponsiveContentPadding">
 																<columns>
-																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+																	<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 																		<header>
 																			<Text text="Tipo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																		</header>

@@ -21,7 +21,9 @@
 				"uri": "/sap/opu/odata/sap/ZFI_GW_DASH_OV_SRV",
 				"type": "OData",
 				"settings": {
-					"annotations": ["ZFI_GW_DASH_OV_ANNO_MDL"]
+					"annotations": [
+						"ZFI_GW_DASH_OV_ANNO_MDL"
+					]
 				}
 			},
 			"ZFI_GW_DASH_OV_ANNO_MDL": {
@@ -94,17 +96,6 @@
 				},
 				"dataSource": "ZFI_GW_DASH_OV_SRV",
 				"preload": true
-			},
-			"parecer": {
-				"type": "sap.ui.model.odata.v2.ODataModel",
-				"settings": {
-					"defaultOperationMode": "Server",
-					"defaultBindingMode": "TwoWay",
-					"defaultCountMode": "Request",
-					"useBatch": true
-				},
-				"dataSource": "ZFI_GW_DASH_OV_SRV",
-				"preload": true
 			}
 		},
 		"resources": {
@@ -119,7 +110,9 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": ["PaginaInicial"]
+					"target": [
+						"PaginaInicial"
+					]
 				}
 			},
 			"targets": {
@@ -162,29 +155,49 @@
 				"parecerCredito": {
 					"viewType": "XML",
 					"viewName": "parecerCredito"
+				},
+				"texto5C": {
+					"viewType": "XML",
+					"viewName": "texto5C"
 				}
 			},
-			"routes": [{
-				"pattern": "PaginaInicial/:context:",
-				"name": "PaginaInicial",
-				"target": ["PaginaInicial"]
-			}, {
-				"pattern": "",
-				"name": "default",
-				"target": ["PaginaInicial"]
-			}, {
-				"pattern": "LimiteDeCredito/:context:",
-				"name": "LimiteDeCredito",
-				"target": ["LimiteDeCredito"]
-			}, {
-				"pattern": "OrdemDeVendas/:context:",
-				"name": "OrdemDeVendas",
-				"target": ["OrdemDeVendas"]
-			}, {
-				"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
-				"name": "AnaliseDeDados",
-				"target": ["AnaliseDeDados"]
-			}]
+			"routes": [
+				{
+					"pattern": "PaginaInicial/:context:",
+					"name": "PaginaInicial",
+					"target": [
+						"PaginaInicial"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"PaginaInicial"
+					]
+				},
+				{
+					"pattern": "LimiteDeCredito/:context:",
+					"name": "LimiteDeCredito",
+					"target": [
+						"LimiteDeCredito"
+					]
+				},
+				{
+					"pattern": "OrdemDeVendas/:context:",
+					"name": "OrdemDeVendas",
+					"target": [
+						"OrdemDeVendas"
+					]
+				},
+				{
+					"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
+					"name": "AnaliseDeDados",
+					"target": [
+						"AnaliseDeDados"
+					]
+				}
+			]
 		}
 	}
 }

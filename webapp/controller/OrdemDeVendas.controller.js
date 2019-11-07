@@ -39,7 +39,7 @@
 					});
 					this.oDialogObs.close();
 				},
-
+				
 				saveObservation: function () {
 					this.getObs();
 				},
@@ -264,11 +264,7 @@
 					}
 
 				},
-				before: function (oEvt) {
-					debugger;
-				},
 
-		
 				_onOverflowToolbarButtonPress: function (oEvent) {
 					debugger;
 					this.mSettingsDialogs = this.mSettingsDialogs || {};

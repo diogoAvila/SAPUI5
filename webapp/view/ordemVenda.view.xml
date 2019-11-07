@@ -3,6 +3,7 @@
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Ordem de Venda" enableScrolling="true">
 		<content>
+			<Label text="Product" labelFor="productInput"/>
 			<l:VerticalLayout width="100%" class="gridWrapper">
 				<l:Grid containerQuery="true" vSpacing="2" defaultSpan="L12 M12 S12">
 					<smartTable:SmartTable id="smart" entitySet="ZFI_DASHBOARD_OV_APP" tableType="ResponsiveTable" header="Ordens bloqueadas"
