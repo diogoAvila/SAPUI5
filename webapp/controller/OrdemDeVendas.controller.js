@@ -28,18 +28,26 @@
 							var error = e.responseText;
 
 							var jsonError = JSON.parse(error);
-							var message = jsonError.error.message.value;
-							MessageBox.error(
-								message, {
-									actions: [sap.m.MessageBox.Action.OK],
-									styleClass: "sapUiSizeCompact"
+							var sMessage = " ";
+							var errorDetails = jsonError.error.innererror.errordetails;
+
+							if (errorDetails) {
+								for (var i = 0, len = errorDetails.length; i < len; i++) {
+									var message = errorDetails[i].message + "\n\n";
+									sMessage += message;
 								}
-							);
+								MessageBox.error(
+									sMessage, {
+										actions: [sap.m.MessageBox.Action.OK],
+										styleClass: "sapUiSizeCompact"
+									}
+								);
+							}
 						}
 					});
 					this.oDialogObs.close();
 				},
-				
+
 				saveObservation: function () {
 					this.getObs();
 				},
@@ -233,7 +241,6 @@
 				},
 
 				onInit: function () {
-
 					this._mViewSettingsDialogs = {};
 					this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 					this.oRouter.getTarget("OrdemDeVendas").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));

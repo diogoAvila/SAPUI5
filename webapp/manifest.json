@@ -21,9 +21,7 @@
 				"uri": "/sap/opu/odata/sap/ZFI_GW_DASH_OV_SRV",
 				"type": "OData",
 				"settings": {
-					"annotations": [
-						"ZFI_GW_DASH_OV_ANNO_MDL"
-					]
+					"annotations": ["ZFI_GW_DASH_OV_ANNO_MDL"]
 				}
 			},
 			"ZFI_GW_DASH_OV_ANNO_MDL": {
@@ -96,6 +94,41 @@
 				},
 				"dataSource": "ZFI_GW_DASH_OV_SRV",
 				"preload": true
+			},
+			"IndFinAno": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"IndFinan": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"BalAno": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"BalDre": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"BalAtivo": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"BalPassivo": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"DadosIr": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
 			}
 		},
 		"resources": {
@@ -110,9 +143,7 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"PaginaInicial"
-					]
+					"target": ["PaginaInicial"]
 				}
 			},
 			"targets": {
@@ -161,43 +192,27 @@
 					"viewName": "texto5C"
 				}
 			},
-			"routes": [
-				{
-					"pattern": "PaginaInicial/:context:",
-					"name": "PaginaInicial",
-					"target": [
-						"PaginaInicial"
-					]
-				},
-				{
-					"pattern": "",
-					"name": "default",
-					"target": [
-						"PaginaInicial"
-					]
-				},
-				{
-					"pattern": "LimiteDeCredito/:context:",
-					"name": "LimiteDeCredito",
-					"target": [
-						"LimiteDeCredito"
-					]
-				},
-				{
-					"pattern": "OrdemDeVendas/:context:",
-					"name": "OrdemDeVendas",
-					"target": [
-						"OrdemDeVendas"
-					]
-				},
-				{
-					"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
-					"name": "AnaliseDeDados",
-					"target": [
-						"AnaliseDeDados"
-					]
-				}
-			]
+			"routes": [{
+				"pattern": "PaginaInicial/:context:",
+				"name": "PaginaInicial",
+				"target": ["PaginaInicial"]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": ["PaginaInicial"]
+			}, {
+				"pattern": "LimiteDeCredito/:context:",
+				"name": "LimiteDeCredito",
+				"target": ["LimiteDeCredito"]
+			}, {
+				"pattern": "OrdemDeVendas/:context:",
+				"name": "OrdemDeVendas",
+				"target": ["OrdemDeVendas"]
+			}, {
+				"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
+				"name": "AnaliseDeDados",
+				"target": ["AnaliseDeDados"]
+			}]
 		}
 	}
 }
