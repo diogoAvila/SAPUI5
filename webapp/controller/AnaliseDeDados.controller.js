@@ -1,9 +1,8 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
-	"./Dialog2",
 	"./utilities",
 	"sap/ui/core/routing/History"
-], function (BaseController, MessageBox, Dialog2, Utilities, History) {
+], function (BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.controller.AnaliseDeDados", {
@@ -158,6 +157,52 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				}
 			);
 			oModel.read(
+				"/ZFI_DASHBOARD_BUDGET_ANOSet", {
+					filters: filterArr,
+					success: function (oData, response) {
+						var dataBudgetAno;
+						var objectBudgetAno = [];
+
+						dataBudgetAno = {
+							"orcado": oData.results[0].orcado,
+							"realizado": oData.results[0].realizado,
+							"pendente": oData.results[0].pendente
+						};
+
+						var jsonBudgetAno = new sap.ui.model.json.JSONModel();
+						jsonBudgetAno.setData(dataBudgetAno);
+						this.getView().setModel(jsonBudgetAno, "BudgetAno");
+					}.bind(this)
+				}
+			);
+
+			oModel.read(
+				"/ZFI_DASHBOARD_BUDGET_CULTURASet", {
+					filters: filterArr,
+					success: function (oData, response) {
+
+						var dataBudgetCultura;
+						var objectBudgetCultura = [];
+
+						for (var cont = 0; cont < oData.results.length; cont++) {
+
+							dataBudgetCultura = {
+								"cod_cultura": oData.results[cont].cod_cultura,
+								"desc_cultura": oData.results[cont].desc_cultura,
+								"valor": oData.results[cont].valor,
+								"percentual": oData.results[cont].percentual
+							};
+							objectBudgetCultura.push(dataBudgetCultura);
+						}
+
+						var jsonBudgetCultura = new sap.ui.model.json.JSONModel();
+						jsonBudgetCultura.setData(objectBudgetCultura);
+						this.getView().setModel(jsonBudgetCultura, "BudgetCultura");
+					}.bind(this)
+				}
+			);
+
+			oModel.read(
 				"/ZFI_DASHBOARD_BALANCO_VARIACAOSet", {
 					filters: filterArr,
 					success: function (oData, response) {
@@ -309,43 +354,32 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				oQuery[aPair[0]] = decodeURIComponent(aPair[1]);
 			}
 			return oQuery;
-
 		},
 
 		onGetParecer: function (oEvent) {
-			debugger;
-
 			var filters = [];
-
 			var path = this.getView().getObjectBinding().getPath();
-			var cliente = path.substr(25, 7);
 
-			filters.push(new sap.ui.model.Filter({
-				path: "partner",
-				operator: sap.ui.model.FilterOperator.EQ,
-				value1: cliente
-			}));
-
-			// filters.push(cliente);
-
+			this.getView().getModel("parecer").setProperty("/parecer", "");
 			this.getOwnerComponent().getModel().read(
-				"/ZFI_DASHBOARD_DETALHES", {
-					filters: filters,
+				path, {
 					urlParameters: {
 						"$expand": "to_parecer"
 					},
 					success: function (oData, response) {
-						var json = new sap.ui.model.json.JSONModel();
 						var sParecer = "";
-						var oDados = oData.results;
 
-						for (var i = 0; i < oDados[0].to_parecer.results.length; i++) {
-							sParecer = sParecer + oDados[0].to_parecer.results[i].parecer;
+						var oDados = oData.to_parecer;
+						if (oDados.results.length > 0) {
+							for (var i = 0; i < oDados.results.length; i++) {
+								sParecer = sParecer + oDados.results[i].parecer;
+							}
 						}
-						oData.results[0].to_parecer.results[0].parecer = sParecer;
+						this.getView().getModel("parecer").setProperty("/parecer", sParecer);
 
-						json.setData(oData.results[0].to_parecer.results[0]);
-						this.getView().setModel(json, "parecer");
+					}.bind(this),
+					error: function (error) {
+						this.getView().getModel("parecer").setProperty("/parecer", "");
 					}.bind(this)
 				}
 			);
@@ -358,99 +392,35 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 
 		onGet5c: function (oEvent) {
-			debugger;
-
 			var filters = [];
 
 			var path = this.getView().getObjectBinding().getPath();
-			var cliente = path.substr(25, 7);
 
-			filters.push(new sap.ui.model.Filter({
-				path: "partner",
-				operator: sap.ui.model.FilterOperator.EQ,
-				value1: cliente
-			}));
+			this.getView().getModel("cincoC").setProperty("/cinco_c", "");
+			this.getOwnerComponent().getModel().read(path, {
+				urlParameters: {
+					"$expand": "to_cinco_c"
+				},
+				success: function (oData, response) {
+					var sTexto = "";
+					var oDados = oData.to_cinco_c;
 
-			this.getOwnerComponent().getModel().read(
-				"/ZFI_DASHBOARD_DETALHES", {
-					filters: filters,
-					urlParameters: {
-						"$expand": "to_cinco_c"
-					},
-					success: function (oData, response) {
-						var json = new sap.ui.model.json.JSONModel();
-						var sTexto = "";
-						var oDados = oData.results;
-
-						for (var i = 0; i < oDados[0].to_cinco_c.results.length; i++) {
-							sTexto = sTexto + oDados[0].to_cinco_c.results[i].cinco_c;
+					if (oDados.results.length > 0) {
+						for (var i = 0; i < oDados.results.length; i++) {
+							sTexto = sTexto + oDados.results[i].cinco_c;
 						}
-						oData.results[0].to_cinco_c.results[0].cinco_c = sTexto;
+					}
+					this.getView().getModel("cincoC").setProperty("/cinco_c", sTexto);
 
-						json.setData(oData.results[0].to_cinco_c.results[0]);
-						this.getView().setModel(json, "5C");
-					}.bind(this)
-				}
-			);
+				}.bind(this)
 
-			if (!this.oDialogParecer) {
-				this.oDialogParecer = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.texto5C");
-				this.getView().addDependent(this.oDialogParecer);
-			}
-			this.oDialogParecer.bindObject(path).open();
-		},
-
-		_onLinkPress: function (oEvent) {
-
-			var sDialogName = "Dialog2";
-			this.mDialogs = this.mDialogs || {};
-			var oDialog = this.mDialogs[sDialogName];
-			if (!oDialog) {
-				oDialog = new Dialog2(this.getView());
-				this.mDialogs[sDialogName] = oDialog;
-
-				oDialog.setRouter(this.oRouter);
-			}
-
-			var context = oEvent.getSource().getBindingContext();
-			oDialog._oControl.setBindingContext(context);
-
-			oDialog.open();
-
-		},
-		_onLinkPress1: function () {
-			return new Promise(function (fnResolve) {
-				var sTargetPos = "center center";
-				sTargetPos = (sTargetPos === "default") ? undefined : sTargetPos;
-				sap.m.MessageToast.show("Irá te levar ao S4", {
-					onClose: fnResolve,
-					duration: 0 || 3000,
-					at: sTargetPos,
-					my: sTargetPos
-				});
-			}).catch(function (err) {
-				if (err !== undefined) {
-					MessageBox.error(err.message);
-				}
 			});
 
-		},
-		_onLinkPress3: function () {
-			return new Promise(function (fnResolve) {
-				var sTargetPos = "center center";
-				sTargetPos = (sTargetPos === "default") ? undefined : sTargetPos;
-				sap.m.MessageToast.show("Irá te levar ao S4", {
-					onClose: fnResolve,
-					duration: 0 || 3000,
-					at: sTargetPos,
-					my: sTargetPos
-				});
-			}).catch(function (err) {
-				if (err !== undefined) {
-					MessageBox.error(err.message);
-				}
-			});
-
+			if (!this.oDialog5C) {
+				this.oDialog5C = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.texto5C");
+				this.getView().addDependent(this.oDialog5C);
+			}
+			this.oDialog5C.bindObject(path).open();
 		},
 
 		onInit: function () {

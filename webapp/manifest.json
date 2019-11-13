@@ -129,6 +129,26 @@
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
 				"preload": false
+			},
+			"BudgetAno": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"BudgetCultura": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"parecer": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"cincoC": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
 			}
 		},
 		"resources": {
@@ -143,7 +163,7 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": ["PaginaInicial"]
+					"target": ["OrdemDeVendas"]
 				}
 			},
 			"targets": {
@@ -165,7 +185,7 @@
 					"controlAggregation": "pages",
 					"viewName": "ordemVenda",
 					"viewId": "ordemVenda",
-					"viewLevel": 2,
+					"viewLevel": 1,
 					"transition": "slide"
 				},
 				"AnaliseDeDados": {
@@ -193,18 +213,6 @@
 				}
 			},
 			"routes": [{
-				"pattern": "PaginaInicial/:context:",
-				"name": "PaginaInicial",
-				"target": ["PaginaInicial"]
-			}, {
-				"pattern": "",
-				"name": "default",
-				"target": ["PaginaInicial"]
-			}, {
-				"pattern": "LimiteDeCredito/:context:",
-				"name": "LimiteDeCredito",
-				"target": ["LimiteDeCredito"]
-			}, {
 				"pattern": "OrdemDeVendas/:context:",
 				"name": "OrdemDeVendas",
 				"target": ["OrdemDeVendas"]
