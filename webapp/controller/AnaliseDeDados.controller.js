@@ -5,7 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 ], function (BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
-	return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.controller.AnaliseDeDados", {
+	return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardOrdem.controller.AnaliseDeDados", {
 		handleRouteMatched: function (oEvent) {
 			var sAppId = "App5d2490b700160954c5f85bec";
 			var cliente = oEvent.getParameter("data").cliente;
@@ -146,12 +146,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						var jsonIndFin = new sap.ui.model.json.JSONModel();
 						jsonIndFin.setData(objectBal);
 						this.getView().setModel(jsonIndFin, "IndFinan");
-						//this.getView().byId("TabIndFin").setModel(jsonIndFin, "IndFinan");
 
 						var jsonIr = new sap.ui.model.json.JSONModel();
 						jsonIr.setData(objectIr);
 						this.getView().setModel(jsonIr, "DadosIr");
-						//this.getView().byId("TabDadosIr").setModel(jsonIr, "DadosIr");
 
 					}.bind(this)
 				}
@@ -309,6 +307,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			);
 		},
 
+		fechar5C: function (oEvt) {
+
+			this.oDialog5C.close();
+		},
+
+		fecharParecer: function (oEvt) {
+
+			this.oDialogParecer.close();
+		},
+
 		_onPageNavButtonPress: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -357,7 +365,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 
 		onGetParecer: function (oEvent) {
-			var filters = [];
 			var path = this.getView().getObjectBinding().getPath();
 
 			this.getView().getModel("parecer").setProperty("/parecer", "");
@@ -385,14 +392,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			);
 
 			if (!this.oDialogParecer) {
-				this.oDialogParecer = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.parecerCredito");
+				this.oDialogParecer = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.parecerCredito", this);
 				this.getView().addDependent(this.oDialogParecer);
 			}
 			this.oDialogParecer.bindObject(path).open();
 		},
 
 		onGet5c: function (oEvent) {
-			var filters = [];
 
 			var path = this.getView().getObjectBinding().getPath();
 
@@ -417,7 +423,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 			if (!this.oDialog5C) {
-				this.oDialog5C = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.texto5C");
+				this.oDialog5C = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.texto5C", this);
 				this.getView().addDependent(this.oDialog5C);
 			}
 			this.oDialog5C.bindObject(path).open();

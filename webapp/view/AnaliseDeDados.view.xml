@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.h12f10161-us_3.dashboardTabelas.controller.AnaliseDeDados" xmlns="sap.m"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.h12f10161-us_3.dashboardOrdem.controller.AnaliseDeDados" xmlns="sap.m"
 	xmlns:layout="sap.ui.layout" xmlns:smartMicro="sap.ui.comp.smartmicrochart" xmlns:micro="sap.suite.ui.microchart"
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:smartTable="sap.ui.comp.smarttable">
 	<Page showHeader="true" id="analise" title="Detalhes" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
@@ -672,7 +672,7 @@
 													<HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div"
 														visible="true" displayInline="false">
 														<items>
-															<Link text="credito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
+															<Link text="Crédito" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
 																subtle="false" press="onGetParecer"/>
 															<Link text="5C'S" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="false"
 																subtle="false" press="onGet5c"/>

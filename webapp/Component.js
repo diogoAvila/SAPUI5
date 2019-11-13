@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/sap/build/h12f10161-us_3/dashboardTabelas/model/models",
+	"com/sap/build/h12f10161-us_3/dashboardOrdem/model/models",
 	"./model/errorHandling"
 ], function(UIComponent, Device, models, errorHandling) {
 	"use strict";
@@ -15,7 +15,7 @@ sap.ui.define([
 		}
 	};
 
-	return UIComponent.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.Component", {
+	return UIComponent.extend("com.sap.build.h12f10161-us_3.dashboardOrdem.Component", {
 
 		metadata: {
 			manifest: "json"

@@ -9,7 +9,7 @@
 			"use strict";
 			var hasError = "";
 
-			return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardTabelas.controller.OrdemDeVendas", {
+			return BaseController.extend("com.sap.build.h12f10161-us_3.dashboardOrdem.controller.OrdemDeVendas", {
 				getObs: function (oEvt) {
 					var oModel = this.getView().getModel();
 					var path = oEvt.getSource().getBindingContext().getPath();
@@ -44,7 +44,6 @@
 						}
 					});
 					this.oDialogObs.close();
-					// this.oDialogObs.refresh();
 				},
 
 				saveObservation: function () {
@@ -53,7 +52,7 @@
 
 				getDialog: function (id) {
 					if (!this.oDialogObs) {
-						this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.observation", this);
+						this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.observation", this);
 						this.getView().addDependent(this.oDialogObs);
 						this.oDialogObs.idRow = id;
 					}
@@ -67,7 +66,7 @@
 					var bloqueio = this.getView().getModel().oData[id].Bloqueio;
 					if (bloqueio != "R") {
 						if (!this.oDialogObs) {
-							this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardTabelas.view.observation", this);
+							this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.observation", this);
 							this.getView().addDependent(this.oDialogObs);
 						}
 						this.oDialogObs.bindObject(path).open();

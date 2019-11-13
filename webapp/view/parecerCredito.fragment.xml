@@ -3,5 +3,12 @@
 		<content width="700px" height="500px">
 			<TextArea value="{parecer>/parecer}" editable="false" width="700px" height="500px"/>
 		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="OK" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="fecharParecer"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
 	</Dialog>
 </core:FragmentDefinition>
