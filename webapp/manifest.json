@@ -21,7 +21,9 @@
 				"uri": "/sap/opu/odata/sap/ZFI_GW_DASH_OV_SRV",
 				"type": "OData",
 				"settings": {
-					"annotations": ["ZFI_GW_DASH_OV_ANNO_MDL"]
+					"annotations": [
+						"ZFI_GW_DASH_OV_ANNO_MDL"
+					]
 				}
 			},
 			"ZFI_GW_DASH_OV_ANNO_MDL": {
@@ -163,7 +165,9 @@
 				"clearTarget": false,
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": ["OrdemDeVendas"]
+					"target": [
+						"OrdemDeVendas"
+					]
 				}
 			},
 			"targets": {
@@ -212,15 +216,26 @@
 					"viewName": "texto5C"
 				}
 			},
-			"routes": [{
-				"pattern": "OrdemDeVendas/:context:",
-				"name": "OrdemDeVendas",
-				"target": ["OrdemDeVendas"]
-			}, {
-				"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
-				"name": "AnaliseDeDados",
-				"target": ["AnaliseDeDados"]
-			}]
+			"routes": [
+				{
+					"pattern": "OrdemDeVendas/:context:",
+					"name": "OrdemDeVendas",
+					"target": [
+						"OrdemDeVendas"
+					]
+				},
+				{
+					"pattern": "AnaliseDeDados/{cliente}/{ordem}/{item}",
+					"name": "AnaliseDeDados",
+					"target": [
+						"AnaliseDeDados"
+					]
+				}
+			]
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zui5_fi_dash_ov/webapp",
+		"_version": "1.1.0"
 	}
 }
