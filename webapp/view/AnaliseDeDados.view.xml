@@ -118,25 +118,27 @@
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="{i18n>vigente}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{limite_vigente}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{path: 'limite_vigente', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="{i18n>paraAprovacao}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{limite_aprovacao}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{path: 'limite_aprovacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="{i18n>exigido}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{exigido}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseFloat(${exigido})}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 															<ColumnListItem type="Active">
 																<cells>
 																	<ObjectIdentifier title="{i18n>atingido}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{atingido}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseFloat(${atingido})}" unit="" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -397,9 +399,11 @@
 																	<ObjectIdentifier title="{desc_cultura}" text="" titleActive="false" visible="true"/>
 																	<Text text="{path: 'area_hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																	<ObjectNumber number="{path: 'percent'}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{path: 'cust_prod'}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{path: 'prev_rec'}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseFloat(${percent})}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{path: 'cust_prod', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
+																	<ObjectNumber number="{path: 'prev_rec', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -498,8 +502,8 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{integrante}" text="" titleActive="false" visible="true"/>
-																	<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																	<ObjectIdentifier title="{nome_integrante}" text="" titleActive="false" visible="true"/>
+																	<ObjectIdentifier title="{descr_tipo}" text="" titleActive="false" visible="true"/>
 																	<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																		wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</cells>
@@ -2095,10 +2099,11 @@
 																					<ObjectIdentifier title="{desc_cultura}" text="" titleActive="false" visible="true"/>
 																					<Text text="{path: 'area_hectares', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																						wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-																					<ObjectNumber number="{path: 'percent'}" unit="" emphasized="true"
-																						state="None"/>
-																					<ObjectNumber number="{path: 'cust_prod'}" unit="" emphasized="true" state="None"/>
-																					<ObjectNumber number="{path: 'prev_rec'}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{= parseFloat(${percent})}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{path: 'cust_prod', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
+																					<ObjectNumber number="{path: 'prev_rec', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
 																				</cells>
 																			</ColumnListItem>
 																		</items>
@@ -2404,8 +2409,8 @@
 																				<items>
 																					<ColumnListItem type="Active">
 																						<cells>
-																							<ObjectIdentifier title="{integrante}" text="" titleActive="false" visible="true"/>
-																							<ObjectIdentifier title="{tipo}" text="" titleActive="false" visible="true"/>
+																							<ObjectIdentifier title="{nome_integrante}" text="" titleActive="false" visible="true"/>
+																							<ObjectIdentifier title="{descr_tipo}" text="" titleActive="false" visible="true"/>
 																							<Text text="{path: 'participacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="auto" maxLines="1"
 																								wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																						</cells>
@@ -2480,25 +2485,27 @@
 																			<ColumnListItem type="Active">
 																				<cells>
 																					<ObjectIdentifier title="{i18n>vigente}" text="" titleActive="false" visible="true"/>
-																					<ObjectNumber number="{limite_vigente}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{path: 'limite_vigente', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
 																				</cells>
 																			</ColumnListItem>
 																			<ColumnListItem type="Active">
 																				<cells>
 																					<ObjectIdentifier title="{i18n>paraAprovacao}" text="" titleActive="false" visible="true"/>
-																					<ObjectNumber number="{limite_aprovacao}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{path: 'limite_aprovacao', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
 																				</cells>
 																			</ColumnListItem>
 																			<ColumnListItem type="Active">
 																				<cells>
 																					<ObjectIdentifier title="{i18n>exigido}" text="" titleActive="false" visible="true"/>
-																					<ObjectNumber number="{exigido}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{= parseFloat(${exigido})}" unit="" emphasized="true" state="None"/>
 																				</cells>
 																			</ColumnListItem>
 																			<ColumnListItem type="Active">
 																				<cells>
 																					<ObjectIdentifier title="{i18n>atingido}" text="" titleActive="false" visible="true"/>
-																					<ObjectNumber number="{atingido}" unit="" emphasized="true" state="None"/>
+																					<ObjectNumber number="{= parseFloat(${atingido})}" unit="" emphasized="true" state="None"/>
 																				</cells>
 																			</ColumnListItem>
 																		</items>
