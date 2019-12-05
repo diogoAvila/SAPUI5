@@ -117,6 +117,13 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
+																	<ObjectIdentifier title="{i18n>corrente}" text="" titleActive="false" visible="true"/>
+																	<ObjectNumber number="{path: 'limite_corrente', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																		emphasized="true" state="None"/>
+																</cells>
+															</ColumnListItem>
+															<ColumnListItem type="Active">
+																<cells>
 																	<ObjectIdentifier title="{i18n>vigente}" text="" titleActive="false" visible="true"/>
 																	<ObjectNumber number="{path: 'limite_vigente', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
 																		emphasized="true" state="None"/>
@@ -2482,6 +2489,13 @@
 																			</Column>
 																		</columns>
 																		<items>
+																			<ColumnListItem type="Active">
+																				<cells>
+																					<ObjectIdentifier title="{i18n>corrente}" text="" titleActive="false" visible="true"/>
+																					<ObjectNumber number="{path: 'limite_corrente', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit=""
+																						emphasized="true" state="None"/>
+																				</cells>
+																			</ColumnListItem>
 																			<ColumnListItem type="Active">
 																				<cells>
 																					<ObjectIdentifier title="{i18n>vigente}" text="" titleActive="false" visible="true"/>
