@@ -64,12 +64,18 @@
 					var id = path.substr(1);
 
 					var bloqueio = this.getView().getModel().oData[id].Bloqueio;
+					var aprovacao = this.getView().getModel().oData[id].Status_aprov;
+
 					if (bloqueio != "R") {
-						if (!this.oDialogObs) {
-							this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.observation", this);
-							this.getView().addDependent(this.oDialogObs);
+						if (aprovacao) {
+							if (!this.oDialogObs) {
+								this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.observation", this);
+								this.getView().addDependent(this.oDialogObs);
+							}
+							this.oDialogObs.bindObject(path).open();
+						} else {
+							sap.m.MessageBox.error("É necessário escolher a opção de aprovação");
 						}
-						this.oDialogObs.bindObject(path).open();
 					} else {
 						if (this.getView().getModel().hasPendingChanges()) {
 							this.getView().getModel().resetChanges();
@@ -206,6 +212,10 @@
 				},
 				beforeRebindTable: function (oEvt) {
 					var filters = [];
+
+					var binding = oEvt.getParameter("bindingParams");
+					var oFilter = new sap.ui.model.Filter("Bloqueio", sap.ui.model.FilterOperator.NE, "");
+					binding.filters.push(oFilter);
 
 					filters = oEvt.getParameter("bindingParams").filters;
 

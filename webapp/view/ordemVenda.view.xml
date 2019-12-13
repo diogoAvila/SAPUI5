@@ -47,79 +47,79 @@
 							<t:Column width="12rem">
 								<Label text="{i18n>month01}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v1', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v1', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month02}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v2', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v2', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month03}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v3', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v3', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month04}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v4', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v4', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month05}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v5', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v5', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month06}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v6', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v6', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month07}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v7', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v7', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month08}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v8', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v8', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month09}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v9', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v9', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month10}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v10', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v10', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month11}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v11', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v11', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>month12}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'v12', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'v12', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 							<t:Column width="12rem">
 								<Label text="{i18n>total}"/>
 								<t:template>
-									<ObjectIdentifier title="{path: 'Total', type: 'sap.ui.model.type.Float'}" titleActive="false" visible="true"/>
+									<ObjectIdentifier title="{path: 'Total', type: 'sap.ui.model.type.Float',formatOptions: { maxFractionDigits: 2 }}" titleActive="false" visible="true"/>
 								</t:template>
 							</t:Column>
 						</t:columns>
