@@ -16,7 +16,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject({
 					path: "/ZFI_DASHBOARD_DETALHES('" + oEvent.getParameter("data").cliente + "')",
 					parameters: {
-						expand: "to_cliente,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_grupo_finan,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos"
+						expand: "to_cliente,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos"
 					}
 				});
 			} else {
@@ -401,22 +401,105 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		onGet5c: function (oEvent) {
 
 			var path = this.getView().getObjectBinding().getPath();
+			var textos = this.getView().getModel("cincoC");
+
+			var sAtvCapacidade = "";
+			var sAtvCapital = "";
+			var sAtvCarater = "";
+			var sAtvColateral = "";
+			var sAtvCondicoes = "";
+
+			var sGcdCapacidade = "";
+			var sGcdCapital = "";
+			var sGcdCarater = "";
+			var sGcdColateral = "";
+			var sGcdCondicoes = "";
+
+			var sCredCapacidade = "";
+			var sCredCapital = "";
+			var sCredCarater = "";
+			var sCredColateral = "";
+			var sCredCondicoes = "";
 
 			this.getView().getModel("cincoC").setProperty("/cinco_c", "");
+
 			this.getOwnerComponent().getModel().read(path, {
 				urlParameters: {
 					"$expand": "to_cinco_c"
 				},
 				success: function (oData, response) {
-					var sTexto = "";
 					var oDados = oData.to_cinco_c;
-
+					debugger;
 					if (oDados.results.length > 0) {
 						for (var i = 0; i < oDados.results.length; i++) {
-							sTexto = sTexto + oDados.results[i].cinco_c;
+							switch (oDados.results[i].id_texto) {
+							case "ATVCAPACIDADE":
+								sAtvCapacidade = sAtvCapacidade + oDados.results[i].cinco_c;
+								break;
+							case "ATVCAPITAL":
+								sAtvCapital = sAtvCapital + oDados.results[i].cinco_c;
+								break;
+							case "ATVCARATER":
+								sAtvCarater = sAtvCarater + oDados.results[i].cinco_c;
+								break;
+							case "ATVCOLATERAL":
+								sAtvColateral = sAtvColateral + oDados.results[i].cinco_c;
+								break;
+							case "ATVCONDICOES":
+								sAtvCondicoes = sAtvCondicoes + oDados.results[i].cinco_c;
+								break;
+
+							case "GCDCAPACIDADE":
+								sGcdCapacidade = sGcdCapacidade + oDados.results[i].cinco_c;
+								break;
+							case "GCDCAPITAL":
+								sGcdCapital = sGcdCapital + oDados.results[i].cinco_c;
+								break;
+							case "GCDCARATER":
+								sGcdCarater = sGcdCarater + oDados.results[i].cinco_c;
+								break;
+							case "GCDCOLATERAL":
+								sGcdColateral = sGcdColateral + oDados.results[i].cinco_c;
+								break;
+							case "GCDCONDICOES":
+								sGcdCondicoes = sGcdCondicoes + oDados.results[i].cinco_c;
+								break;
+
+							case "CREDCAPACIDADE":
+								sCredCapacidade = sCredCapacidade + oDados.results[i].cinco_c;
+								break;
+							case "CREDCAPITAL":
+								sCredCapital = sCredCapital + oDados.results[i].cinco_c;
+								break;
+							case "CREDCARATER":
+								sCredCarater = sCredCarater + oDados.results[i].cinco_c;
+								break;
+							case "CREDCOLATERAL":
+								sCredColateral = sCredColateral + oDados.results[i].cinco_c;
+								break;
+							case "CREDCONDICOES":
+								sCredCondicoes = sCredCondicoes + oDados.results[i].cinco_c;
+								break;
+							}
 						}
 					}
-					this.getView().getModel("cincoC").setProperty("/cinco_c", sTexto);
+					this.getView().getModel("cincoC").setProperty("/ATVCAPACIDADE", sAtvCapacidade);
+					this.getView().getModel("cincoC").setProperty("/ATVCAPITAL", sAtvCapital);
+					this.getView().getModel("cincoC").setProperty("/ATVCARATER", sAtvCarater);
+					this.getView().getModel("cincoC").setProperty("/ATVCOLATERAL", sAtvColateral);
+					this.getView().getModel("cincoC").setProperty("/ATVCONDICOES", sAtvCondicoes);
+
+					this.getView().getModel("cincoC").setProperty("/GCDCAPACIDADE", sGcdCapacidade);
+					this.getView().getModel("cincoC").setProperty("/GCDCAPITAL", sGcdCapital);
+					this.getView().getModel("cincoC").setProperty("/GCDCARATER", sGcdCarater);
+					this.getView().getModel("cincoC").setProperty("/GCDCOLATERAL", sGcdColateral);
+					this.getView().getModel("cincoC").setProperty("/GCDCONDICOES", sGcdCondicoes);
+
+					this.getView().getModel("cincoC").setProperty("/CREDCAPACIDADE", sCredCapacidade);
+					this.getView().getModel("cincoC").setProperty("/CREDCAPITAL", sCredCapital);
+					this.getView().getModel("cincoC").setProperty("/CREDCARATER", sCredCarater);
+					this.getView().getModel("cincoC").setProperty("/CREDCOLATERAL", sCredColateral);
+					this.getView().getModel("cincoC").setProperty("/CREDCONDICOES", sCredCondicoes);
 
 				}.bind(this)
 

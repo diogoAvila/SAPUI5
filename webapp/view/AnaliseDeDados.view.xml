@@ -157,7 +157,7 @@
 												visible="true" displayInline="false" class="sapUiSmallMarginTop">
 												<items>
 													<Title text="{i18n>grpFinan}" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
-													<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_grupo_finan'}" showSeparators="All" growing="false"
+													<Table width="100%" noDataText="No data" mode="None" items="{path: 'GrupoFinan>/'}" showSeparators="All" growing="false"
 														growingThreshold="20" growingScrollToLoad="false" class="sapUiSmallMarginTop">
 														<infoToolbar>
 															<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
@@ -170,7 +170,7 @@
 														<columns>
 															<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 																<header>
-																	<Text text="{i18n>ano}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+																	<Text text="{i18n>cliente}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</header>
 																<footer/>
 															</Column>
@@ -185,8 +185,8 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectIdentifier title="{codigo}" text="" titleActive="false" visible="true"/>
-																	<ObjectNumber number="{nome}" unit="" emphasized="true" state="None"/>
+																	<ObjectIdentifier title="{= parseFloat(${GrupoFinan>codigo})}" text="" titleActive="false" visible="true"/>
+																	<Text text="{GrupoFinan>nome}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -665,10 +665,10 @@
 														<items>
 															<ColumnListItem type="Active">
 																<cells>
-																	<ObjectNumber number="{defensivos}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{sementes}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{fertilizantes}" unit="" emphasized="true" state="None"/>
-																	<ObjectNumber number="{graos}" unit="" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseInt(${defensivos})}" unit="%" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseInt(${graos})}" unit="%" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseInt(${sementes})}" unit="%" emphasized="true" state="None"/>
+																	<ObjectNumber number="{= parseInt(${fertilizantes})}" unit="%" emphasized="true" state="None"/>
 																</cells>
 															</ColumnListItem>
 														</items>
@@ -1879,7 +1879,7 @@
 							<ScrollContainer horizontal="true" vertical="true" width="100%" height="600px" visible="true">
 								<content>
 									<Title text="{i18n>grpFinan}" titleStyle="H1" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
-									<Table width="100%" noDataText="No data" mode="None" items="{path: 'to_grupo_finan'}" showSeparators="All" growing="false"
+									<Table width="100%" noDataText="No data" mode="None" items="{path: 'GrupoFinan>/'}" showSeparators="All" growing="false"
 										growingThreshold="20" growingScrollToLoad="false" class="sapUiSmallMarginTop">
 										<infoToolbar>
 											<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
@@ -1892,7 +1892,7 @@
 										<columns>
 											<Column width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 												<header>
-													<Text text="{i18n>ano}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+													<Text text="{i18n>cliente}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</header>
 												<footer/>
 											</Column>
@@ -1907,8 +1907,8 @@
 										<items>
 											<ColumnListItem type="Active">
 												<cells>
-													<ObjectIdentifier title="{codigo}" text="" titleActive="false" visible="true"/>
-													<ObjectNumber number="{nome}" unit="" emphasized="true" state="None"/>
+													<ObjectIdentifier title="{= parseFloat(${GrupoFinan>codigo})}" text="" titleActive="false" visible="true"/>
+													<Text text="{GrupoFinan>nome}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</cells>
 											</ColumnListItem>
 										</items>
@@ -2175,10 +2175,10 @@
 																<items>
 																	<ColumnListItem type="Active">
 																		<cells>
-																			<ObjectNumber number="{defensivos}" unit="" emphasized="true" state="None"/>
-																			<ObjectNumber number="{sementes}" unit="" emphasized="true" state="None"/>
-																			<ObjectNumber number="{fertilizantes}" unit="" emphasized="true" state="None"/>
-																			<ObjectNumber number="{graos}" unit="" emphasized="true" state="None"/>
+																			<ObjectNumber number="{= parseInt(${defensivos})}" unit="%" emphasized="true" state="None"/>
+																			<ObjectNumber number="{= parseInt(${graos})}" unit="%" emphasized="true" state="None"/>
+																			<ObjectNumber number="{= parseInt(${sementes})}" unit="%" emphasized="true" state="None"/>
+																			<ObjectNumber number="{= parseInt(${fertilizantes})}" unit="%" emphasized="true" state="None"/>
 																		</cells>
 																	</ColumnListItem>
 																</items>
