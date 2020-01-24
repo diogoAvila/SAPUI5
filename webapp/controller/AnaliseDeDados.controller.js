@@ -16,7 +16,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				this.getView().bindObject({
 					path: "/ZFI_DASHBOARD_DETALHES('" + oEvent.getParameter("data").cliente + "')",
 					parameters: {
-						expand: "to_cliente,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos"
+						expand: "to_cliente,to_clienteUnico,to_fornecedores,to_garantia,to_faturamento,to_balanco,to_culturas,to_pos_cliente,to_hist_vendas,to_integrantes,to_socio_integrante,to_contratos"
 					}
 				});
 			} else {
@@ -43,6 +43,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 			oBinding.filter(finalFilter);
+
+			if (this.getView().getModel("IndFinAno") !== undefined) {
+				this.getView().getModel("IndFinAno").setData();
+			}
 
 			oModel.read(
 				"/ZFI_DASHBOARD_BALANCO_CAMPOSSet", {
@@ -154,6 +158,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					}.bind(this)
 				}
 			);
+
+			if (this.getView().getModel("BudgetAno") !== undefined) {
+				this.getView().getModel("BudgetAno").setData();
+			}
+
 			oModel.read(
 				"/ZFI_DASHBOARD_BUDGET_ANOSet", {
 					filters: filterArr,
@@ -161,18 +170,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						var dataBudgetAno;
 						var objectBudgetAno = [];
 
-						dataBudgetAno = {
-							"orcado": oData.results[0].orcado,
-							"realizado": oData.results[0].realizado,
-							"pendente": oData.results[0].pendente
-						};
-
+						if (oData.results.length > 0) {
+							dataBudgetAno = {
+								"orcado": oData.results[0].orcado,
+								"realizado": oData.results[0].realizado,
+								"pendente": oData.results[0].pendente
+							};
+						}
 						var jsonBudgetAno = new sap.ui.model.json.JSONModel();
 						jsonBudgetAno.setData(dataBudgetAno);
 						this.getView().setModel(jsonBudgetAno, "BudgetAno");
 					}.bind(this)
 				}
 			);
+
+			if (this.getView().getModel("BudgetCultura") !== undefined) {
+				this.getView().getModel("BudgetCultura").setData();
+			}
 
 			oModel.read(
 				"/ZFI_DASHBOARD_BUDGET_CULTURASet", {
@@ -199,6 +213,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					}.bind(this)
 				}
 			);
+
+			if (this.getView().getModel("BalAno") !== undefined) {
+				this.getView().getModel("BalAno").setData();
+			}
 
 			oModel.read(
 				"/ZFI_DASHBOARD_BALANCO_VARIACAOSet", {
@@ -305,6 +323,60 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					}.bind(this)
 				}
 			);
+
+			if (this.getView().getModel("GrupoFinan") !== undefined) {
+				this.getView().getModel("GrupoFinan").setData();
+			}
+
+			oModel.read(
+				"/ZFI_DASHBOARD_GRUPO_FINANCEIROSet", {
+					filters: filterArr,
+					success: function (oData, response) {
+
+						var dataGrupoFinan;
+						var objectGrupoFinan = [];
+
+						for (var cont = 0; cont < oData.results.length; cont++) {
+
+							dataGrupoFinan = {
+								"codigo": oData.results[cont].codigo,
+								"nome": oData.results[cont].nome
+							};
+
+							objectGrupoFinan.push(dataGrupoFinan);
+						}
+
+						var jsonGrupoFinan = new sap.ui.model.json.JSONModel();
+						jsonGrupoFinan.setData(objectGrupoFinan);
+						this.getView().setModel(jsonGrupoFinan, "GrupoFinan");
+					}.bind(this)
+				}
+			);
+
+			oModel.read(
+				"/ZFI_DASHBOARD_POSICAO_CLIENTESet", {
+					filters: filterArr,
+					success: function (oData, response) {
+						var dataPosicaoCli;
+						var objectPosicaoCli = [];
+
+						for (var cont = 0; cont < oData.results.length; cont++) {
+
+							dataPosicaoCli = {
+								"vencido": parseFloat(oData.results[cont].vencido).toFixed(2),
+								"avencer": parseFloat(oData.results[cont].avencer).toFixed(2),
+								"total": parseFloat(oData.results[cont].total).toFixed(2)
+							};
+
+							objectPosicaoCli.push(dataPosicaoCli);
+						}
+
+						var jsonPosiClie = new sap.ui.model.json.JSONModel();
+						jsonPosiClie.setData(objectPosicaoCli);
+						this.getView().setModel(jsonPosiClie, "PosicaoCli");
+					}.bind(this)
+				}
+			);
 		},
 
 		fechar5C: function (oEvt) {
@@ -332,7 +404,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		formataValor: function (oEvt) {
 
-			if (oEvt !== undefined && oEvt !== " ") {
+			if (oEvt !== undefined && oEvt !== " " && oEvt !== null) {
 				if (oEvt.slice(oEvt.length - 1, oEvt.length) === "-") {
 					var value = oEvt.slice(0, oEvt.length - 1);
 					if (!isNaN(value)) {
@@ -429,7 +501,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				},
 				success: function (oData, response) {
 					var oDados = oData.to_cinco_c;
-					debugger;
 					if (oDados.results.length > 0) {
 						for (var i = 0; i < oDados.results.length; i++) {
 							switch (oDados.results[i].id_texto) {

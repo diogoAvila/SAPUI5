@@ -46,6 +46,7 @@
 	"sap.ui": {
 		"_version": "1.3.0",
 		"technology": "UI5",
+		"fullWidth": true,
 		"icons": {
 			"icon": "",
 			"favIcon": "",
@@ -153,6 +154,11 @@
 				"preload": false
 			},
 			"GrupoFinan": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"PosicaoCli": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
 				"preload": false

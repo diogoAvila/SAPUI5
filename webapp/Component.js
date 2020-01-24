@@ -53,7 +53,8 @@ sap.ui.define([
 
 		createContent: function() {
 			var app = new sap.m.App({
-				id: "App"
+				id: "App",
+				appWidthLimited : false
 			});
 			var appType = "App";
 			var appBackgroundColor = "#FFFFFF";

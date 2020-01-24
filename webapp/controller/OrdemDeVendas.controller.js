@@ -16,7 +16,7 @@
 					var key = path.substr(1);
 					var values = oModel.oData[key];
 					var changes = oEvt.getSource().getModel().getPendingChanges()[key];
-					values.Status_aprov = changes.Status_aprov;
+					values.Aprovacao = changes.Aprovacao;
 					values.Observacao = changes.Observacao;
 
 					oModel.update(path, values, {
@@ -43,13 +43,16 @@
 							}
 						}
 					});
+					this.cancelObservation();
+				},
+
+				// saveObservation: function () {
+				// 	this.getObs();
+				// },
+
+				cancelObservation: function () {
 					this.oDialogObs.close();
 				},
-
-				saveObservation: function () {
-					this.getObs();
-				},
-
 				getDialog: function (id) {
 					if (!this.oDialogObs) {
 						this.oDialogObs = sap.ui.xmlfragment("com.sap.build.h12f10161-us_3.dashboardOrdem.view.observation", this);
@@ -64,7 +67,7 @@
 					var id = path.substr(1);
 
 					var bloqueio = this.getView().getModel().oData[id].Bloqueio;
-					var aprovacao = this.getView().getModel().oData[id].Status_aprov;
+					var aprovacao = this.getView().getModel().getPendingChanges()[path.substr(1)].Aprovacao;
 
 					if (bloqueio != "R") {
 						if (aprovacao) {
@@ -83,7 +86,7 @@
 						sap.m.MessageBox.error("Não é possível liberar ordem com bloqueio de remessa");
 					}
 				},
-
+			
 				handleRouteMatched: function (oEvent) {
 					var sAppId = "App5d2490b700160954c5f85bec";
 
@@ -212,16 +215,22 @@
 				},
 				beforeRebindTable: function (oEvt) {
 					var filters = [];
+					var Filtro = [];
+					filters = oEvt.getParameter("bindingParams").filters;
 
 					var binding = oEvt.getParameter("bindingParams");
 					var oFilter = new sap.ui.model.Filter("Bloqueio", sap.ui.model.FilterOperator.NE, "");
 					binding.filters.push(oFilter);
 
-					filters = oEvt.getParameter("bindingParams").filters;
+					for (var i = 0; i < filters.length; i++) {
+						if (filters[i].sPath === "Cliente") {
+							Filtro.push(filters[i]);
+						}
+					}
 
 					this.getOwnerComponent().getModel().read(
 						"/ZFI_DASHBOARD_VALOR_FATURAR", {
-							filters: filters,
+							filters: Filtro,
 							success: function (oData, response) {
 								var json = new sap.ui.model.json.JSONModel();
 								json.setData(oData.results);
